@@ -18,7 +18,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{696AC820
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ContentBlocks", "ContentBlocks", "{3121970D-5E7E-47D8-A5A7-D92AB40EB006}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject1", "TestProject1\TestProject1.csproj", "{366DB078-ED75-4723-9997-78F1CCB609A5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContentBlocks.UnitTests", "tests\ContentBlocks\ContentBlocks.UnitTests\ContentBlocks.UnitTests.csproj", "{366DB078-ED75-4723-9997-78F1CCB609A5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
