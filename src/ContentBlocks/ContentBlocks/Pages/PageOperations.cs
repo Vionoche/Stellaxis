@@ -1,10 +1,10 @@
 ﻿using System;
 using ChillSite.ContentBlocks.Common;
-using ChillSite.ContentBlocks.PagesClassic.Events;
-using ChillSite.ContentBlocks.PagesClassic.Rules;
+using ChillSite.ContentBlocks.Pages.Events;
+using ChillSite.ContentBlocks.Pages.Rules;
 using FluentValidation;
 
-namespace ChillSite.ContentBlocks.PagesFunctional;
+namespace ChillSite.ContentBlocks.Pages;
 
 public static class PageOperations
 {

@@ -1,10 +1,10 @@
 ﻿using System;
 using ChillSite.ContentBlocks.Common;
-using ChillSite.ContentBlocks.PagesFunctional;
+using ChillSite.ContentBlocks.Pages;
 using FluentAssertions;
 using Xunit;
 
-namespace ChillSite.ContentBlocks.UnitTests.PagesFunctional;
+namespace ChillSite.ContentBlocks.UnitTests.Pages;
 
 public class PageOperationsTests
 {

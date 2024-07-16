@@ -2,7 +2,7 @@
 using ChillSite.ContentBlocks.Common;
 using FluentValidation;
 
-namespace ChillSite.ContentBlocks.PagesClassic.Rules;
+namespace ChillSite.ContentBlocks.Pages.Rules;
 
 public record PagePublishingRule(
     bool IsPublished,

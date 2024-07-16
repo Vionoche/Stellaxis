@@ -1,7 +1,7 @@
 ﻿using System;
 using ChillSite.ContentBlocks.Common;
 
-namespace ChillSite.ContentBlocks.PagesFunctional;
+namespace ChillSite.ContentBlocks.Pages;
 
 public class PageManager : IPageManager
 {
