@@ -11,9 +11,19 @@ public class PageOperationsTests
     [Fact]
     public void Test_Page_Creation_And_Publication_With_Pure_Operations()
     {
+        var mainLayout = new LayoutComponentType(
+            new LayoutComponentName("MainLayout"),
+            typeof(object));
+
+        var pageTemplate = new TemplateComponentType(
+            new TemplateComponentName("HomePage"),
+            typeof(object),
+            mainLayout);
+        
         var page = Page.Create(
             _dateTimeService,
             _domainEventHandler,
+            pageTemplate,
             title: "Home",
             description: "The main page",
             seoDescription: null,
@@ -24,6 +34,7 @@ public class PageOperationsTests
             .Publish(_dateTimeService, _domainEventHandler);
         
         page.PageId.Should().NotBeEmpty();
+        page.TemplateComponentType.Should().Be(pageTemplate);
         page.Title.Should().Be("Home");
         page.Description.Should().Be("Home page");
         page.SeoDescription.Should().Be("Welcome site");

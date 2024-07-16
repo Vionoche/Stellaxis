@@ -8,6 +8,7 @@ namespace ChillSite.SiteBlocks.Pages;
 
 public record Page(
     Guid PageId,
+    TemplateComponentType TemplateComponentType,
     string Title,
     string? Description,
     bool IsPublished,
@@ -20,6 +21,7 @@ public record Page(
     public static Page Create(
         IDateTimeService dateTimeService,
         IDomainEventHandler domainEventHandler,
+        TemplateComponentType templateComponentType,
         string title,
         string? description,
         string? seoDescription,
@@ -30,6 +32,7 @@ public record Page(
 
         var page = new Page(
             PageId: Guid.NewGuid(),
+            templateComponentType,
             title,
             description,
             IsPublished: false,
