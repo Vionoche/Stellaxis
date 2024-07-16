@@ -1,4 +1,4 @@
-﻿namespace ChillSite.ContentBlocks.Common;
+﻿namespace ChillSite.SiteBlocks.Common;
 
 public interface ICurrentUserContext
 {

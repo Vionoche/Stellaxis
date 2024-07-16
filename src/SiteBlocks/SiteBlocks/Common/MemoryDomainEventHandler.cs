@@ -2,7 +2,7 @@
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 
-namespace ChillSite.ContentBlocks.Common;
+namespace ChillSite.SiteBlocks.Common;
 
 public class MemoryDomainEventHandler : IDomainEventHandler
 {

@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace ChillSite.ContentBlocks.Pages.Events;
+namespace ChillSite.SiteBlocks.Pages.Events;
 
-public record PageCreatedEvent(
+public record PageUpdatedEvent(
     Guid PageId,
     string Title,
     string? Description,

@@ -1,5 +1,5 @@
 ﻿using System;
 
-namespace ChillSite.ContentBlocks.Pages.Events;
+namespace ChillSite.SiteBlocks.Pages.Events;
 
 public record PageUnpublishedEvent(Guid PageId);

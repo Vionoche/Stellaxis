@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <AssemblyName>ChillSite.ContentBlocks</AssemblyName>
-        <RootNamespace>ChillSite.ContentBlocks</RootNamespace>
+        <AssemblyName>ChillSite.SiteBlocks</AssemblyName>
+        <RootNamespace>ChillSite.SiteBlocks</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>

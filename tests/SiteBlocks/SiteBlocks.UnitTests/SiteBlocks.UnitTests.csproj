@@ -1,8 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <AssemblyName>ChillSite.ContentBlocks.UnitTests</AssemblyName>
-        <RootNamespace>ChillSite.ContentBlocks.UnitTests</RootNamespace>
+        <AssemblyName>ChillSite.SiteBlocks.UnitTests</AssemblyName>
+        <RootNamespace>ChillSite.SiteBlocks.UnitTests</RootNamespace>
         <IsPackable>false</IsPackable>
         <IsTestProject>true</IsTestProject>
     </PropertyGroup>
@@ -22,7 +22,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\..\src\ContentBlocks\ContentBlocks\ContentBlocks.csproj" />
+      <ProjectReference Include="..\..\..\src\SiteBlocks\SiteBlocks\SiteBlocks.csproj" />
     </ItemGroup>
 
 </Project>

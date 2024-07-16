@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace ChillSite.ContentBlocks.Pages.Rules;
+namespace ChillSite.SiteBlocks.Pages.Rules;
 
 public record PageUpdatingRule(
     string Title,

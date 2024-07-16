@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ChillSite.ContentBlocks.Common;
+namespace ChillSite.SiteBlocks.Common;
 
 public class UtcDateTimeService : IDateTimeService
 {

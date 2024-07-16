@@ -10,15 +10,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{694C921B-9AF0-4914-8ED1-7F0339857925}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ContentBlocks", "ContentBlocks", "{4E92604C-71A0-4101-9126-A4E793EE8947}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SiteBlocks", "SiteBlocks", "{4E92604C-71A0-4101-9126-A4E793EE8947}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContentBlocks", "src\ContentBlocks\ContentBlocks\ContentBlocks.csproj", "{9E3AE315-FE55-43C6-A24A-808F76335667}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiteBlocks", "src\SiteBlocks\SiteBlocks\SiteBlocks.csproj", "{9E3AE315-FE55-43C6-A24A-808F76335667}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{696AC820-D651-437D-8F3B-9FDEBE02A525}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ContentBlocks", "ContentBlocks", "{3121970D-5E7E-47D8-A5A7-D92AB40EB006}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SiteBlocks", "SiteBlocks", "{3121970D-5E7E-47D8-A5A7-D92AB40EB006}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContentBlocks.UnitTests", "tests\ContentBlocks\ContentBlocks.UnitTests\ContentBlocks.UnitTests.csproj", "{366DB078-ED75-4723-9997-78F1CCB609A5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiteBlocks.UnitTests", "tests\SiteBlocks\SiteBlocks.UnitTests\SiteBlocks.UnitTests.csproj", "{366DB078-ED75-4723-9997-78F1CCB609A5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

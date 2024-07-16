@@ -1,8 +1,8 @@
 ﻿using System;
-using ChillSite.ContentBlocks.Common;
+using ChillSite.SiteBlocks.Common;
 using FluentValidation;
 
-namespace ChillSite.ContentBlocks.Pages.Rules;
+namespace ChillSite.SiteBlocks.Pages.Rules;
 
 public record PagePublishingRule(
     bool IsPublished,

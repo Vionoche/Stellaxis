@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ChillSite.ContentBlocks.Pages;
+namespace ChillSite.SiteBlocks.Pages;
 
 public class PageException : Exception
 {

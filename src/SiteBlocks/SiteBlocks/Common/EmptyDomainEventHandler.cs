@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ChillSite.ContentBlocks.Common;
+namespace ChillSite.SiteBlocks.Common;
 
 public class EmptyDomainEventHandler : IDomainEventHandler
 {

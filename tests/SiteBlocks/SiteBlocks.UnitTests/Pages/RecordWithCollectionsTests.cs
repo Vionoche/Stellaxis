@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 
-namespace ChillSite.ContentBlocks.UnitTests.Pages;
+namespace ChillSite.SiteBlocks.UnitTests.Pages;
 
 public class RecordWithCollectionsTests
 {

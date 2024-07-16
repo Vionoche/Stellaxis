@@ -1,10 +1,10 @@
 ﻿using System;
-using ChillSite.ContentBlocks.Common;
-using ChillSite.ContentBlocks.Pages.Events;
-using ChillSite.ContentBlocks.Pages.Rules;
+using ChillSite.SiteBlocks.Common;
+using ChillSite.SiteBlocks.Pages.Events;
+using ChillSite.SiteBlocks.Pages.Rules;
 using FluentValidation;
 
-namespace ChillSite.ContentBlocks.Pages;
+namespace ChillSite.SiteBlocks.Pages;
 
 public record Page(
     Guid PageId,
