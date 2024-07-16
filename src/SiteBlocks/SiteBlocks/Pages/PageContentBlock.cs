@@ -4,7 +4,7 @@ using ChillSite.SiteBlocks.ContentBlocks;
 namespace ChillSite.SiteBlocks.Pages;
 
 public record PageContentBlock(
-    Guid SitePageId,
+    Guid PageId,
     ContentBlock ContentBlock,
     PageContainer PageContainer,
     int ContainerPosition);
