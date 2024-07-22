@@ -6,7 +6,7 @@ namespace ChillSite.SiteBlocks.Pages.Rules;
 
 public record PagePublishingRule(
     bool IsPublished,
-    DateTime? PublishedDate);
+    DateTime? PublicationDate);
 
 public class PagePublishingRuleValidator : AbstractValidator<PagePublishingRule>
 {
@@ -14,10 +14,11 @@ public class PagePublishingRuleValidator : AbstractValidator<PagePublishingRule>
     {
         RuleFor(x => x.IsPublished)
             .Equal(false)
-            .WithMessage($"The page already has been published.");
+            .WithMessage("The page has been already published.");
         
-        RuleFor(x => x.PublishedDate)
+        RuleFor(x => x.PublicationDate)
             .GreaterThanOrEqualTo(dateTimeService.UtcNow)
-            .WithMessage("Дата публикации страницы не может быть меньше текущей даты.");
+            .When(x => x.PublicationDate != null)
+            .WithMessage("The publication date must be greater than or equal to current date.");
     }
 }

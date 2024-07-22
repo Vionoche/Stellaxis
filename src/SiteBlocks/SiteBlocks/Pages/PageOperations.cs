@@ -43,13 +43,13 @@ public static class PageOperations
         var publishedPage = page with
         {
             IsPublished = true,
-            PublishedDate = publishedDate,
+            PublicationDate = publishedDate,
             ModificationDate = dateTimeService.UtcNow
         };
         
         domainEventHandler.AddEvent(new PagePublishedEvent(
             publishedPage.PageId,
-            publishedPage.PublishedDate));
+            publishedPage.PublicationDate));
 
         return publishedPage;
     }
@@ -63,7 +63,7 @@ public static class PageOperations
         var unpublishedPage = page with
         {
             IsPublished = false,
-            PublishedDate = null,
+            PublicationDate = null,
             ModificationDate = dateTimeService.UtcNow
         };
         
