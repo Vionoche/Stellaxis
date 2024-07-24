@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <AssemblyName>ChillSite.SiteBlocks.Storage</AssemblyName>
+        <RootNamespace>ChillSite.SiteBlocks.Storage</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\SiteBlocks\SiteBlocks.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="YamlDotNet" Version="16.0.0" />
+    </ItemGroup>
+
+</Project>
