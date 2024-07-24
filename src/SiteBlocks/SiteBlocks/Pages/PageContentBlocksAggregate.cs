@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using ChillSite.SiteBlocks.Common;
 using ChillSite.SiteBlocks.ContentBlocks;
@@ -27,28 +28,21 @@ public class PageContentBlocksAggregate
         _contentBlocksMap = CreateContentBlocksMap(_pageContentBlocks);
     }
 
-    public void AddPageContentBlocks(params PageContentBlock[] pageContentBlocks)
+    public void AddOrUpdatePageContentBlocks(params PageContentBlock[] pageContentBlocks)
     {
         if (pageContentBlocks.Length == 0)
         {
             return;
         }
+
+        _pageContentBlocks.RemoveAll(current =>
+            pageContentBlocks.Any(updated =>
+                updated.PageContainer.Name.Equals(current.PageContainer.Name, StringComparison.InvariantCultureIgnoreCase)
+                && updated.ContentBlock.ContentBlockId == current.ContentBlock.ContentBlockId));
         
         _pageContentBlocks.AddRange(pageContentBlocks);
-        _contentBlocksMap = CreateContentBlocksMap(_pageContentBlocks);
-
-        UpdatePageModificationDate();
-        SendPageContentBlocksUpdatedEvent();
-    }
-
-    public void UpdatePageContentBlocks(params PageContentBlock[] pageContentBlocks)
-    {
-        if (pageContentBlocks.Length == 0)
-        {
-            return;
-        }
         
-        // todo: merge with AddPageContentBlocks
+        _contentBlocksMap = CreateContentBlocksMap(_pageContentBlocks);
         
         UpdatePageModificationDate();
         SendPageContentBlocksUpdatedEvent();
