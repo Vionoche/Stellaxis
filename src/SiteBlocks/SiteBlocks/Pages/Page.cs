@@ -9,6 +9,7 @@ namespace ChillSite.SiteBlocks.Pages;
 public record Page(
     Guid PageId,
     TemplateComponentType TemplateComponentType,
+    string Name,
     string Title,
     string? Description,
     bool IsPublished,
@@ -22,17 +23,22 @@ public record Page(
         IDateTimeService dateTimeService,
         IDomainEventHandler domainEventHandler,
         TemplateComponentType templateComponentType,
+        string name,
         string title,
         string? description,
         string? seoDescription,
         string? seoKeywords)
     {
-        var rule = new PageUpdatingRule(title, description, seoDescription, seoKeywords);
-        new PageUpdatingRuleValidator().ValidateAndThrow(rule);
+        var nameUpdatingRule = new PageNameUpdatingRule(name);
+        new PageNameUpdatingRuleValidator().ValidateAndThrow(nameUpdatingRule);
+        
+        var updatingRule = new PageUpdatingRule(title, description, seoDescription, seoKeywords);
+        new PageUpdatingRuleValidator().ValidateAndThrow(updatingRule);
 
         var page = new Page(
             PageId: Guid.NewGuid(),
             templateComponentType,
+            name,
             title,
             description,
             IsPublished: false,
@@ -44,6 +50,7 @@ public record Page(
         
         domainEventHandler.AddEvent(new PageCreatedEvent(
             page.PageId,
+            page.Name,
             page.Title,
             page.Description,
             page.SeoDescription,

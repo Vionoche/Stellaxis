@@ -33,6 +33,25 @@ public static class PageOperations
 
         return updatedPage;
     }
+
+    public static Page UpdateName(
+        this Page page, IDateTimeService dateTimeService, IDomainEventHandler domainEventHandler, string name)
+    {
+        var rule = new PageNameUpdatingRule(name);
+        new PageNameUpdatingRuleValidator().ValidateAndThrow(rule);
+
+        var updatedPage = page with
+        {
+            Name = name,
+            ModificationDate = dateTimeService.UtcNow
+        };
+        
+        domainEventHandler.AddEvent(new PageNameUpdatedEvent(
+            updatedPage.PageId,
+            updatedPage.Name));
+        
+        return updatedPage;
+    }
     
     public static Page Publish(
         this Page page, IDateTimeService dateTimeService, IDomainEventHandler domainEventHandler, DateTime? publishedDate = null)

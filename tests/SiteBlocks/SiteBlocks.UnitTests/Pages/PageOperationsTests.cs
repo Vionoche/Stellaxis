@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using ChillSite.SiteBlocks.Common;
 using ChillSite.SiteBlocks.Pages;
 using FluentAssertions;
@@ -24,6 +25,7 @@ public class PageOperationsTests
             _dateTimeService,
             _domainEventHandler,
             pageTemplate,
+            name: "Home",
             title: "Home",
             description: "The main page",
             seoDescription: null,
@@ -41,6 +43,56 @@ public class PageOperationsTests
         page.SeoKeywords.Should().BeNull();
         page.CreationDate.Should().BeCloseTo(DateTime.UtcNow, TimeSpan.FromMinutes(1));
         page.ModificationDate.Should().BeCloseTo(DateTime.UtcNow, TimeSpan.FromMinutes(1));
+    }
+
+    [Fact]
+    public void Test_Page_Name_Validation()
+    {
+        var mainLayout = new LayoutComponentType(
+            new LayoutComponentName("MainLayout"),
+            typeof(object));
+
+        var pageTemplate = new TemplateComponentType(
+            new TemplateComponentName("HomePage"),
+            typeof(object),
+            mainLayout);
+        
+        var page = Page.Create(
+            _dateTimeService,
+            _domainEventHandler,
+            pageTemplate,
+            name: "Home",
+            title: "Home",
+            description: "The main page",
+            seoDescription: null,
+            seoKeywords: null);
+
+        page.UpdateName(_dateTimeService, _domainEventHandler, "Home01");
+        page.UpdateName(_dateTimeService, _domainEventHandler, "Home_Page");
+        page.UpdateName(_dateTimeService, _domainEventHandler, "Home-Page");
+        page.UpdateName(_dateTimeService, _domainEventHandler, "Главная");
+        page.UpdateName(_dateTimeService, _domainEventHandler, "Главная01");
+        page.UpdateName(_dateTimeService, _domainEventHandler, "Главная_Страница");
+        page.UpdateName(_dateTimeService, _domainEventHandler, "Главная-Страница");
+        
+       var action = () =>  page.UpdateName(_dateTimeService, _domainEventHandler, "Home 01");
+       action.Should().Throw<Exception>();
+       
+       action = () =>  page.UpdateName(_dateTimeService, _domainEventHandler, "Home's Page");
+       action.Should().Throw<Exception>();
+       
+       action = () =>  page.UpdateName(_dateTimeService, _domainEventHandler, "Home!");
+       action.Should().Throw<Exception>();
+       
+       action = () =>  page.UpdateName(_dateTimeService, _domainEventHandler, "Home%");
+       action.Should().Throw<Exception>();
+       
+       action = () =>  page.UpdateName(_dateTimeService, _domainEventHandler, "");
+       action.Should().Throw<Exception>();
+       
+       action = () =>  page.UpdateName(_dateTimeService, _domainEventHandler,
+           name: new string(Enumerable.Range(0, 30).Select(_ => 'w').ToArray()));
+       action.Should().Throw<Exception>();
     }
     
     private readonly IDateTimeService _dateTimeService = new UtcDateTimeService();
