@@ -2,7 +2,7 @@
 
 namespace ChillSite.SiteBlocks.Common;
 
-public record DomainEvent<TData>(
-    Guid EventId,
-    DateTime Timestamp,
-    TData Data) : IDomainEvent;
+public abstract record DomainEvent(
+    Guid DomainEventId,
+    DateTime Timestamp)
+    : IDomainEvent;

@@ -21,7 +21,7 @@ public record Page(
 {
     public static Page Create(
         IDateTimeService dateTimeService,
-        IDomainEventHandler domainEventHandler,
+        IDomainEventBuffer domainEventBuffer,
         TemplateComponentType templateComponentType,
         string name,
         string title,
@@ -48,13 +48,7 @@ public record Page(
             CreationDate: dateTimeService.UtcNow,
             ModificationDate: null);
         
-        domainEventHandler.AddEvent(new PageCreatedEvent(
-            page.PageId,
-            page.Name,
-            page.Title,
-            page.Description,
-            page.SeoDescription,
-            page.SeoKeywords));
+        domainEventBuffer.AddEvent(PageCreatedDomainEvent.Create(dateTimeService, page.PageId));
 
         return page;
     }

@@ -9,8 +9,13 @@ namespace ChillSite.SiteBlocks.Pages;
 public static class PageOperations
 {
     public static Page Update(
-        this Page page, IDateTimeService dateTimeService, IDomainEventHandler domainEventHandler,
-        string title, string? description, string? seoDescription, string? seoKeywords)
+        this Page page,
+        IDateTimeService dateTimeService,
+        IDomainEventBuffer domainEventBuffer,
+        string title,
+        string? description,
+        string? seoDescription,
+        string? seoKeywords)
     {
         var rule = new PageUpdatingRule(title, description, seoDescription, seoKeywords);
         new PageUpdatingRuleValidator().ValidateAndThrow(rule);
@@ -24,18 +29,16 @@ public static class PageOperations
             ModificationDate = dateTimeService.UtcNow
         };
         
-        domainEventHandler.AddEvent(new PageUpdatedEvent(
-            updatedPage.PageId,
-            updatedPage.Title,
-            updatedPage.Description,
-            updatedPage.SeoDescription,
-            updatedPage.SeoKeywords));
+        domainEventBuffer.AddEvent(PageUpdatedDomainEvent.Create(dateTimeService, updatedPage.PageId));
 
         return updatedPage;
     }
 
     public static Page UpdateName(
-        this Page page, IDateTimeService dateTimeService, IDomainEventHandler domainEventHandler, string name)
+        this Page page,
+        IDateTimeService dateTimeService,
+        IDomainEventBuffer domainEventBuffer,
+        string name)
     {
         var rule = new PageNameUpdatingRule(name);
         new PageNameUpdatingRuleValidator().ValidateAndThrow(rule);
@@ -46,15 +49,16 @@ public static class PageOperations
             ModificationDate = dateTimeService.UtcNow
         };
         
-        domainEventHandler.AddEvent(new PageNameUpdatedEvent(
-            updatedPage.PageId,
-            updatedPage.Name));
+        domainEventBuffer.AddEvent(PageNameUpdatedDomainEvent.Create(dateTimeService, updatedPage.PageId));
         
         return updatedPage;
     }
     
     public static Page Publish(
-        this Page page, IDateTimeService dateTimeService, IDomainEventHandler domainEventHandler, DateTime? publishedDate = null)
+        this Page page,
+        IDateTimeService dateTimeService,
+        IDomainEventBuffer domainEventBuffer,
+        DateTime? publishedDate = null)
     {
         var rule = new PagePublishingRule(page.IsPublished, publishedDate);
         new PagePublishingRuleValidator(dateTimeService).ValidateAndThrow(rule);
@@ -66,15 +70,15 @@ public static class PageOperations
             ModificationDate = dateTimeService.UtcNow
         };
         
-        domainEventHandler.AddEvent(new PagePublishedEvent(
-            publishedPage.PageId,
-            publishedPage.PublicationDate));
+        domainEventBuffer.AddEvent(PagePublishedDomainEvent.Create(dateTimeService, publishedPage.PageId));
 
         return publishedPage;
     }
 
     public static Page Unpublish(
-        this Page page, IDateTimeService dateTimeService, IDomainEventHandler domainEventHandler)
+        this Page page,
+        IDateTimeService dateTimeService,
+        IDomainEventBuffer domainEventBuffer)
     {
         var rule = new PageUnpublishingRule(page.IsPublished);
         new PageUnpublishingRuleValidator().ValidateAndThrow(rule);
@@ -86,7 +90,7 @@ public static class PageOperations
             ModificationDate = dateTimeService.UtcNow
         };
         
-        domainEventHandler.AddEvent(new PageUnpublishedEvent(page.PageId));
+        domainEventBuffer.AddEvent(PageUnpublishedDomainEvent.Create(dateTimeService, page.PageId));
 
         return unpublishedPage;
     }

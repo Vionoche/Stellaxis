@@ -17,12 +17,12 @@ public class PageContentBlocksAggregate
 
     public PageContentBlocksAggregate(
         IDateTimeService dateTimeService,
-        IDomainEventHandler domainEventHandler,
+        IDomainEventBuffer domainEventBuffer,
         Page page,
         IEnumerable<PageContentBlock> pageContentBlocks)
     {
         _dateTimeService = dateTimeService;
-        _domainEventHandler = domainEventHandler;
+        _domainEventBuffer = domainEventBuffer;
         Page = page;
         _pageContentBlocks = pageContentBlocks.ToList();
         _contentBlocksMap = CreateContentBlocksMap(_pageContentBlocks);
@@ -88,11 +88,11 @@ public class PageContentBlocksAggregate
 
     private void SendPageContentBlocksUpdatedEvent()
     {
-        _domainEventHandler.AddEvent(new PageContentBlocksUpdated(Page.PageId));
+        _domainEventBuffer.AddEvent(PageContentBlocksDomainUpdated.Create(_dateTimeService, Page.PageId));
     }
 
     private readonly IDateTimeService _dateTimeService;
-    private readonly IDomainEventHandler _domainEventHandler;
+    private readonly IDomainEventBuffer _domainEventBuffer;
     private readonly List<PageContentBlock> _pageContentBlocks;
     private Dictionary<PageContainer, ContentBlock[]> _contentBlocksMap;
 }

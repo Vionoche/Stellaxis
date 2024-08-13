@@ -28,7 +28,7 @@ public class PageStoreTests
         
         var page = Page.Create(
             _dateTimeService,
-            _domainEventHandler,
+            _domainEventBuffer,
             pageTemplate,
             name: "Home",
             title: "Home",
@@ -42,5 +42,5 @@ public class PageStoreTests
     }
     
     private readonly IDateTimeService _dateTimeService = new UtcDateTimeService();
-    private readonly IDomainEventHandler _domainEventHandler = new MemoryDomainEventHandler(new UtcDateTimeService());
+    private readonly IDomainEventBuffer _domainEventBuffer = new InMemoryDomainEventBuffer(new UtcDateTimeService());
 }
