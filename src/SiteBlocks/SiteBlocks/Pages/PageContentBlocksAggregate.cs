@@ -7,7 +7,7 @@ using ChillSite.SiteBlocks.Pages.Events;
 
 namespace ChillSite.SiteBlocks.Pages;
 
-public class PageContentBlocksAggregate
+public sealed class PageContentBlocksAggregate
 {
     public Page Page { get; private set; }
 

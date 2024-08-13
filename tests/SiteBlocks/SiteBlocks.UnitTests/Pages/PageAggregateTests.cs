@@ -7,7 +7,7 @@ using Xunit;
 
 namespace ChillSite.SiteBlocks.UnitTests.Pages;
 
-public class PageOperationsTests
+public class PageAggregateTests
 {
     [Fact]
     public void Test_Page_Creation_And_Publication()
@@ -31,10 +31,13 @@ public class PageOperationsTests
             seoDescription: null,
             seoKeywords: null);
 
-        page = page
-            .Update(_dateTimeService, _domainEventBuffer, "Home", "Home page", "Welcome site", null)
-            .Publish(_dateTimeService, _domainEventBuffer);
+        var pageAggregate = new PageAggregate(_dateTimeService, _domainEventBuffer, page);
         
+        pageAggregate.Update("Home", "Home page", "Welcome site", null);
+        pageAggregate.Publish();
+
+        page = pageAggregate.Page;
+
         page.PageId.Should().NotBeEmpty();
         page.TemplateComponentType.Should().Be(pageTemplate);
         page.Title.Should().Be("Home");
@@ -66,32 +69,33 @@ public class PageOperationsTests
             description: "The main page",
             seoDescription: null,
             seoKeywords: null);
-
-        page.UpdateName(_dateTimeService, _domainEventBuffer, "Home01");
-        page.UpdateName(_dateTimeService, _domainEventBuffer, "Home_Page");
-        page.UpdateName(_dateTimeService, _domainEventBuffer, "Home-Page");
-        page.UpdateName(_dateTimeService, _domainEventBuffer, "Главная");
-        page.UpdateName(_dateTimeService, _domainEventBuffer, "Главная01");
-        page.UpdateName(_dateTimeService, _domainEventBuffer, "Главная_Страница");
-        page.UpdateName(_dateTimeService, _domainEventBuffer, "Главная-Страница");
         
-       var action = () =>  page.UpdateName(_dateTimeService, _domainEventBuffer, "Home 01");
+        var pageAggregate = new PageAggregate(_dateTimeService, _domainEventBuffer, page);
+
+        pageAggregate.UpdateName("Home01");
+        pageAggregate.UpdateName("Home_Page");
+        pageAggregate.UpdateName("Home-Page");
+        pageAggregate.UpdateName("Главная");
+        pageAggregate.UpdateName("Главная01");
+        pageAggregate.UpdateName("Главная_Страница");
+        pageAggregate.UpdateName("Главная-Страница");
+        
+       var action = () =>  pageAggregate.UpdateName("Home 01");
        action.Should().Throw<Exception>();
        
-       action = () =>  page.UpdateName(_dateTimeService, _domainEventBuffer, "Home's Page");
+       action = () =>  pageAggregate.UpdateName("Home's Page");
        action.Should().Throw<Exception>();
        
-       action = () =>  page.UpdateName(_dateTimeService, _domainEventBuffer, "Home!");
+       action = () =>  pageAggregate.UpdateName("Home!");
        action.Should().Throw<Exception>();
        
-       action = () =>  page.UpdateName(_dateTimeService, _domainEventBuffer, "Home%");
+       action = () =>  pageAggregate.UpdateName("Home%");
        action.Should().Throw<Exception>();
        
-       action = () =>  page.UpdateName(_dateTimeService, _domainEventBuffer, "");
+       action = () =>  pageAggregate.UpdateName("");
        action.Should().Throw<Exception>();
        
-       action = () =>  page.UpdateName(_dateTimeService, _domainEventBuffer,
-           name: new string(Enumerable.Range(0, 30).Select(_ => 'w').ToArray()));
+       action = () =>  pageAggregate.UpdateName(new string(Enumerable.Range(0, 30).Select(_ => 'w').ToArray()));
        action.Should().Throw<Exception>();
     }
     
