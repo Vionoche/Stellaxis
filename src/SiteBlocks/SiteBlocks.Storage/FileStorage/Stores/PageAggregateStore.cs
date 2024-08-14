@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using ChillSite.SiteBlocks.Common;
 using ChillSite.SiteBlocks.Pages.Aggregates;
 using ChillSite.SiteBlocks.Storage.FileStorage.Entities;
+using YamlDotNet.Core;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
 
@@ -44,7 +45,8 @@ public class PageAggregateStore : IPageAggregateStore
         };
 
         var serializer = new SerializerBuilder()
-            .WithNamingConvention(PascalCaseNamingConvention.Instance)
+            .ConfigureDefaultValuesHandling(DefaultValuesHandling.OmitNull)
+            .WithNamingConvention(CamelCaseNamingConvention.Instance)
             .Build();
         
         var yaml = serializer.Serialize(pageEntity);

@@ -1,14 +1,15 @@
 ﻿using System.Text;
 using ChillSite.SiteBlocks.Common;
 using ChillSite.SiteBlocks.Pages;
+using ChillSite.SiteBlocks.Pages.Aggregates;
 using ChillSite.SiteBlocks.Storage.FileStorage.Stores;
 
 namespace SiteBlocks.Storage.IntegrationTests.FileStorage;
 
-public class PageStoreTests
+public class PageAggregateStoreTests
 {
     [Fact]
-    public async Task Test_Page_Saving()
+    public async Task Test_PageAggregate_Saving()
     {
         var mainLayout = new LayoutComponentType(
             new LayoutComponentName("MainLayout"),
@@ -36,9 +37,11 @@ public class PageStoreTests
             seoDescription: null,
             seoKeywords: null);
 
-        var store = new PageStore();
+        var pageAggregate = new PageAggregate(_dateTimeProvider, _domainEventBuffer, page);
 
-        await store.SavePage(page, default);
+        var store = new PageAggregateStore(_dateTimeProvider, _domainEventBuffer);
+
+        await store.SavePageAggregate(pageAggregate, default);
     }
     
     private readonly IDateTimeProvider _dateTimeProvider = new UtcDateTimeProvider();
