@@ -10,7 +10,7 @@ public static class PageOperations
 {
     public static Page Update(
         this Page page,
-        IDateTimeService dateTimeService,
+        IDateTimeProvider dateTimeProvider,
         IDomainEventBuffer domainEventBuffer,
         string title,
         string? description,
@@ -26,17 +26,17 @@ public static class PageOperations
             Description = description,
             SeoDescription = seoDescription,
             SeoKeywords = seoKeywords,
-            ModificationDate = dateTimeService.UtcNow
+            ModificationDate = dateTimeProvider.UtcNow
         };
         
-        domainEventBuffer.AddEvent(PageUpdatedDomainEvent.Create(dateTimeService, updatedPage.PageId));
+        domainEventBuffer.AddEvent(PageUpdatedEvent.Create(dateTimeProvider, updatedPage.PageId));
 
         return updatedPage;
     }
 
     public static Page UpdateName(
         this Page page,
-        IDateTimeService dateTimeService,
+        IDateTimeProvider dateTimeProvider,
         IDomainEventBuffer domainEventBuffer,
         string name)
     {
@@ -46,38 +46,38 @@ public static class PageOperations
         var updatedPage = page with
         {
             Name = name,
-            ModificationDate = dateTimeService.UtcNow
+            ModificationDate = dateTimeProvider.UtcNow
         };
         
-        domainEventBuffer.AddEvent(PageNameUpdatedDomainEvent.Create(dateTimeService, updatedPage.PageId));
+        domainEventBuffer.AddEvent(PageNameUpdatedEvent.Create(dateTimeProvider, updatedPage.PageId));
         
         return updatedPage;
     }
     
     public static Page Publish(
         this Page page,
-        IDateTimeService dateTimeService,
+        IDateTimeProvider dateTimeProvider,
         IDomainEventBuffer domainEventBuffer,
         DateTime? publishedDate = null)
     {
         var rule = new PagePublishingRule(page.IsPublished, publishedDate);
-        new PagePublishingRuleValidator(dateTimeService).ValidateAndThrow(rule);
+        new PagePublishingRuleValidator(dateTimeProvider).ValidateAndThrow(rule);
 
         var publishedPage = page with
         {
             IsPublished = true,
             PublicationDate = publishedDate,
-            ModificationDate = dateTimeService.UtcNow
+            ModificationDate = dateTimeProvider.UtcNow
         };
         
-        domainEventBuffer.AddEvent(PagePublishedDomainEvent.Create(dateTimeService, publishedPage.PageId));
+        domainEventBuffer.AddEvent(PagePublishedEvent.Create(dateTimeProvider, publishedPage.PageId));
 
         return publishedPage;
     }
 
     public static Page Unpublish(
         this Page page,
-        IDateTimeService dateTimeService,
+        IDateTimeProvider dateTimeProvider,
         IDomainEventBuffer domainEventBuffer)
     {
         var rule = new PageUnpublishingRule(page.IsPublished);
@@ -87,10 +87,10 @@ public static class PageOperations
         {
             IsPublished = false,
             PublicationDate = null,
-            ModificationDate = dateTimeService.UtcNow
+            ModificationDate = dateTimeProvider.UtcNow
         };
         
-        domainEventBuffer.AddEvent(PageUnpublishedDomainEvent.Create(dateTimeService, page.PageId));
+        domainEventBuffer.AddEvent(PageUnpublishedEvent.Create(dateTimeProvider, page.PageId));
 
         return unpublishedPage;
     }

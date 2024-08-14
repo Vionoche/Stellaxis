@@ -5,9 +5,9 @@ namespace ChillSite.SiteBlocks.Common;
 
 public class InMemoryDomainEventBuffer : IDomainEventBuffer
 {
-    public InMemoryDomainEventBuffer(IDateTimeService dateTimeService)
+    public InMemoryDomainEventBuffer(IDateTimeProvider dateTimeProvider)
     {
-        _dateTimeService = dateTimeService;
+        _dateTimeProvider = dateTimeProvider;
     }
 
     public IEnumerable<IDomainEvent> DomainEvents => _events;
@@ -17,6 +17,6 @@ public class InMemoryDomainEventBuffer : IDomainEventBuffer
         _events.Enqueue(domainEvent);
     }
 
-    private readonly IDateTimeService _dateTimeService;
+    private readonly IDateTimeProvider _dateTimeProvider;
     private readonly ConcurrentQueue<IDomainEvent> _events = [];
 }

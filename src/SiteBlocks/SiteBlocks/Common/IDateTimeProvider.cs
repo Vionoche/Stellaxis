@@ -2,7 +2,7 @@
 
 namespace ChillSite.SiteBlocks.Common;
 
-public interface IDateTimeService
+public interface IDateTimeProvider
 {
     DateTime UtcNow { get; }
 }

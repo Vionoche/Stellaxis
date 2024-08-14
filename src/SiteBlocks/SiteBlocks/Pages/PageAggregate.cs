@@ -11,11 +11,11 @@ public sealed class PageAggregate
     public Page Page { get; private set; }
 
     public PageAggregate(
-        IDateTimeService dateTimeService,
+        IDateTimeProvider dateTimeProvider,
         IDomainEventBuffer domainEventBuffer,
         Page page)
     {
-        _dateTimeService = dateTimeService;
+        _dateTimeProvider = dateTimeProvider;
         _domainEventBuffer = domainEventBuffer;
         Page = page;
     }
@@ -31,10 +31,10 @@ public sealed class PageAggregate
             Description = description,
             SeoDescription = seoDescription,
             SeoKeywords = seoKeywords,
-            ModificationDate = _dateTimeService.UtcNow
+            ModificationDate = _dateTimeProvider.UtcNow
         };
         
-        _domainEventBuffer.AddEvent(PageUpdatedDomainEvent.Create(_dateTimeService, updatedPage.PageId));
+        _domainEventBuffer.AddEvent(PageUpdatedEvent.Create(_dateTimeProvider, updatedPage.PageId));
 
         Page = updatedPage;
     }
@@ -47,10 +47,10 @@ public sealed class PageAggregate
         var updatedPage = Page with
         {
             Name = name,
-            ModificationDate = _dateTimeService.UtcNow
+            ModificationDate = _dateTimeProvider.UtcNow
         };
         
-        _domainEventBuffer.AddEvent(PageNameUpdatedDomainEvent.Create(_dateTimeService, updatedPage.PageId));
+        _domainEventBuffer.AddEvent(PageNameUpdatedEvent.Create(_dateTimeProvider, updatedPage.PageId));
         
         Page = updatedPage;
     }
@@ -58,16 +58,16 @@ public sealed class PageAggregate
     public void Publish(DateTime? publishedDate = null)
     {
         var rule = new PagePublishingRule(Page.IsPublished, publishedDate);
-        new PagePublishingRuleValidator(_dateTimeService).ValidateAndThrow(rule);
+        new PagePublishingRuleValidator(_dateTimeProvider).ValidateAndThrow(rule);
 
         var publishedPage = Page with
         {
             IsPublished = true,
             PublicationDate = publishedDate,
-            ModificationDate = _dateTimeService.UtcNow
+            ModificationDate = _dateTimeProvider.UtcNow
         };
         
-        _domainEventBuffer.AddEvent(PagePublishedDomainEvent.Create(_dateTimeService, publishedPage.PageId));
+        _domainEventBuffer.AddEvent(PagePublishedEvent.Create(_dateTimeProvider, publishedPage.PageId));
 
         Page = publishedPage;
     }
@@ -81,14 +81,14 @@ public sealed class PageAggregate
         {
             IsPublished = false,
             PublicationDate = null,
-            ModificationDate = _dateTimeService.UtcNow
+            ModificationDate = _dateTimeProvider.UtcNow
         };
         
-        _domainEventBuffer.AddEvent(PageUnpublishedDomainEvent.Create(_dateTimeService, Page.PageId));
+        _domainEventBuffer.AddEvent(PageUnpublishedEvent.Create(_dateTimeProvider, Page.PageId));
 
         Page = unpublishedPage;
     }
     
-    private readonly IDateTimeService _dateTimeService;
+    private readonly IDateTimeProvider _dateTimeProvider;
     private readonly IDomainEventBuffer _domainEventBuffer;
 }

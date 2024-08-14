@@ -22,7 +22,7 @@ public class PageOperationsTests
             mainLayout);
         
         var page = Page.Create(
-            _dateTimeService,
+            _dateTimeProvider,
             _domainEventBuffer,
             pageTemplate,
             name: "Home",
@@ -32,8 +32,8 @@ public class PageOperationsTests
             seoKeywords: null);
 
         page = page
-            .Update(_dateTimeService, _domainEventBuffer, "Home", "Home page", "Welcome site", null)
-            .Publish(_dateTimeService, _domainEventBuffer);
+            .Update(_dateTimeProvider, _domainEventBuffer, "Home", "Home page", "Welcome site", null)
+            .Publish(_dateTimeProvider, _domainEventBuffer);
         
         page.PageId.Should().NotBeEmpty();
         page.TemplateComponentType.Should().Be(pageTemplate);
@@ -58,7 +58,7 @@ public class PageOperationsTests
             mainLayout);
         
         var page = Page.Create(
-            _dateTimeService,
+            _dateTimeProvider,
             _domainEventBuffer,
             pageTemplate,
             name: "Home",
@@ -67,34 +67,34 @@ public class PageOperationsTests
             seoDescription: null,
             seoKeywords: null);
 
-        page.UpdateName(_dateTimeService, _domainEventBuffer, "Home01");
-        page.UpdateName(_dateTimeService, _domainEventBuffer, "Home_Page");
-        page.UpdateName(_dateTimeService, _domainEventBuffer, "Home-Page");
-        page.UpdateName(_dateTimeService, _domainEventBuffer, "Главная");
-        page.UpdateName(_dateTimeService, _domainEventBuffer, "Главная01");
-        page.UpdateName(_dateTimeService, _domainEventBuffer, "Главная_Страница");
-        page.UpdateName(_dateTimeService, _domainEventBuffer, "Главная-Страница");
+        page.UpdateName(_dateTimeProvider, _domainEventBuffer, "Home01");
+        page.UpdateName(_dateTimeProvider, _domainEventBuffer, "Home_Page");
+        page.UpdateName(_dateTimeProvider, _domainEventBuffer, "Home-Page");
+        page.UpdateName(_dateTimeProvider, _domainEventBuffer, "Главная");
+        page.UpdateName(_dateTimeProvider, _domainEventBuffer, "Главная01");
+        page.UpdateName(_dateTimeProvider, _domainEventBuffer, "Главная_Страница");
+        page.UpdateName(_dateTimeProvider, _domainEventBuffer, "Главная-Страница");
         
-       var action = () =>  page.UpdateName(_dateTimeService, _domainEventBuffer, "Home 01");
+       var action = () =>  page.UpdateName(_dateTimeProvider, _domainEventBuffer, "Home 01");
        action.Should().Throw<Exception>();
        
-       action = () =>  page.UpdateName(_dateTimeService, _domainEventBuffer, "Home's Page");
+       action = () =>  page.UpdateName(_dateTimeProvider, _domainEventBuffer, "Home's Page");
        action.Should().Throw<Exception>();
        
-       action = () =>  page.UpdateName(_dateTimeService, _domainEventBuffer, "Home!");
+       action = () =>  page.UpdateName(_dateTimeProvider, _domainEventBuffer, "Home!");
        action.Should().Throw<Exception>();
        
-       action = () =>  page.UpdateName(_dateTimeService, _domainEventBuffer, "Home%");
+       action = () =>  page.UpdateName(_dateTimeProvider, _domainEventBuffer, "Home%");
        action.Should().Throw<Exception>();
        
-       action = () =>  page.UpdateName(_dateTimeService, _domainEventBuffer, "");
+       action = () =>  page.UpdateName(_dateTimeProvider, _domainEventBuffer, "");
        action.Should().Throw<Exception>();
        
-       action = () =>  page.UpdateName(_dateTimeService, _domainEventBuffer,
+       action = () =>  page.UpdateName(_dateTimeProvider, _domainEventBuffer,
            name: new string(Enumerable.Range(0, 30).Select(_ => 'w').ToArray()));
        action.Should().Throw<Exception>();
     }
     
-    private readonly IDateTimeService _dateTimeService = new UtcDateTimeService();
-    private readonly IDomainEventBuffer _domainEventBuffer = new InMemoryDomainEventBuffer(new UtcDateTimeService());
+    private readonly IDateTimeProvider _dateTimeProvider = new UtcDateTimeProvider();
+    private readonly IDomainEventBuffer _domainEventBuffer = new InMemoryDomainEventBuffer(new UtcDateTimeProvider());
 }

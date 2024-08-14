@@ -10,14 +10,14 @@ public record PagePublishingRule(
 
 public class PagePublishingRuleValidator : AbstractValidator<PagePublishingRule>
 {
-    public PagePublishingRuleValidator(IDateTimeService dateTimeService)
+    public PagePublishingRuleValidator(IDateTimeProvider dateTimeProvider)
     {
         RuleFor(x => x.IsPublished)
             .Equal(false)
             .WithMessage("The page has been already published.");
         
         RuleFor(x => x.PublicationDate)
-            .GreaterThanOrEqualTo(dateTimeService.UtcNow)
+            .GreaterThanOrEqualTo(dateTimeProvider.UtcNow)
             .When(x => x.PublicationDate != null)
             .WithMessage("The publication date must be greater than or equal to current date.");
     }

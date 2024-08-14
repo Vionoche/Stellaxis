@@ -22,7 +22,7 @@ public class PageAggregateTests
             mainLayout);
         
         var page = Page.Create(
-            _dateTimeService,
+            _dateTimeProvider,
             _domainEventBuffer,
             pageTemplate,
             name: "Home",
@@ -31,7 +31,7 @@ public class PageAggregateTests
             seoDescription: null,
             seoKeywords: null);
 
-        var pageAggregate = new PageAggregate(_dateTimeService, _domainEventBuffer, page);
+        var pageAggregate = new PageAggregate(_dateTimeProvider, _domainEventBuffer, page);
         
         pageAggregate.Update("Home", "Home page", "Welcome site", null);
         pageAggregate.Publish();
@@ -61,7 +61,7 @@ public class PageAggregateTests
             mainLayout);
         
         var page = Page.Create(
-            _dateTimeService,
+            _dateTimeProvider,
             _domainEventBuffer,
             pageTemplate,
             name: "Home",
@@ -70,7 +70,7 @@ public class PageAggregateTests
             seoDescription: null,
             seoKeywords: null);
         
-        var pageAggregate = new PageAggregate(_dateTimeService, _domainEventBuffer, page);
+        var pageAggregate = new PageAggregate(_dateTimeProvider, _domainEventBuffer, page);
 
         pageAggregate.UpdateName("Home01");
         pageAggregate.UpdateName("Home_Page");
@@ -99,6 +99,6 @@ public class PageAggregateTests
        action.Should().Throw<Exception>();
     }
     
-    private readonly IDateTimeService _dateTimeService = new UtcDateTimeService();
-    private readonly IDomainEventBuffer _domainEventBuffer = new InMemoryDomainEventBuffer(new UtcDateTimeService());
+    private readonly IDateTimeProvider _dateTimeProvider = new UtcDateTimeProvider();
+    private readonly IDomainEventBuffer _domainEventBuffer = new InMemoryDomainEventBuffer(new UtcDateTimeProvider());
 }

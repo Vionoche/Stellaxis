@@ -27,7 +27,7 @@ public class PageStoreTests
             .AppendLine("Third line");
         
         var page = Page.Create(
-            _dateTimeService,
+            _dateTimeProvider,
             _domainEventBuffer,
             pageTemplate,
             name: "Home",
@@ -41,6 +41,6 @@ public class PageStoreTests
         await store.SavePage(page, default);
     }
     
-    private readonly IDateTimeService _dateTimeService = new UtcDateTimeService();
-    private readonly IDomainEventBuffer _domainEventBuffer = new InMemoryDomainEventBuffer(new UtcDateTimeService());
+    private readonly IDateTimeProvider _dateTimeProvider = new UtcDateTimeProvider();
+    private readonly IDomainEventBuffer _domainEventBuffer = new InMemoryDomainEventBuffer(new UtcDateTimeProvider());
 }

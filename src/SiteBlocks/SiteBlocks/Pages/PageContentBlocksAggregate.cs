@@ -16,12 +16,12 @@ public sealed class PageContentBlocksAggregate
     public IReadOnlyDictionary<PageContainer, ContentBlock[]> ContentBlocksMap => _contentBlocksMap;
 
     public PageContentBlocksAggregate(
-        IDateTimeService dateTimeService,
+        IDateTimeProvider dateTimeProvider,
         IDomainEventBuffer domainEventBuffer,
         Page page,
         IEnumerable<PageContentBlock> pageContentBlocks)
     {
-        _dateTimeService = dateTimeService;
+        _dateTimeProvider = dateTimeProvider;
         _domainEventBuffer = domainEventBuffer;
         Page = page;
         _pageContentBlocks = pageContentBlocks.ToList();
@@ -82,16 +82,16 @@ public sealed class PageContentBlocksAggregate
     {
         Page = Page with
         {
-            ModificationDate = _dateTimeService.UtcNow
+            ModificationDate = _dateTimeProvider.UtcNow
         };
     }
 
     private void SendPageContentBlocksUpdatedEvent()
     {
-        _domainEventBuffer.AddEvent(PageContentBlocksDomainUpdated.Create(_dateTimeService, Page.PageId));
+        _domainEventBuffer.AddEvent(PageContentBlocksUpdatedEvent.Create(_dateTimeProvider, Page.PageId));
     }
 
-    private readonly IDateTimeService _dateTimeService;
+    private readonly IDateTimeProvider _dateTimeProvider;
     private readonly IDomainEventBuffer _domainEventBuffer;
     private readonly List<PageContentBlock> _pageContentBlocks;
     private Dictionary<PageContainer, ContentBlock[]> _contentBlocksMap;

@@ -20,7 +20,7 @@ public record Page(
     DateTime? ModificationDate)
 {
     public static Page Create(
-        IDateTimeService dateTimeService,
+        IDateTimeProvider dateTimeProvider,
         IDomainEventBuffer domainEventBuffer,
         TemplateComponentType templateComponentType,
         string name,
@@ -45,10 +45,10 @@ public record Page(
             PublicationDate: null,
             seoDescription,
             seoKeywords,
-            CreationDate: dateTimeService.UtcNow,
+            CreationDate: dateTimeProvider.UtcNow,
             ModificationDate: null);
         
-        domainEventBuffer.AddEvent(PageCreatedDomainEvent.Create(dateTimeService, page.PageId));
+        domainEventBuffer.AddEvent(PageCreatedEvent.Create(dateTimeProvider, page.PageId));
 
         return page;
     }
