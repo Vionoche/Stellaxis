@@ -5,7 +5,7 @@ using ChillSite.SiteBlocks.Common;
 using ChillSite.SiteBlocks.ContentBlocks;
 using ChillSite.SiteBlocks.Pages.Events;
 
-namespace ChillSite.SiteBlocks.Pages;
+namespace ChillSite.SiteBlocks.Pages.Aggregates;
 
 public sealed class PageContentBlocksAggregate
 {

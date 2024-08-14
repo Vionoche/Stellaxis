@@ -2,6 +2,7 @@
 using System.Linq;
 using ChillSite.SiteBlocks.Common;
 using ChillSite.SiteBlocks.Pages;
+using ChillSite.SiteBlocks.Pages.Aggregates;
 using FluentAssertions;
 using Xunit;
 

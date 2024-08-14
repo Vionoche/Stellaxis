@@ -4,7 +4,7 @@ using ChillSite.SiteBlocks.Pages.Events;
 using ChillSite.SiteBlocks.Pages.Rules;
 using FluentValidation;
 
-namespace ChillSite.SiteBlocks.Pages;
+namespace ChillSite.SiteBlocks.Pages.Aggregates;
 
 public sealed class PageAggregate
 {
