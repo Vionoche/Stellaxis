@@ -8,5 +8,6 @@ public interface IPageStore
 {
     Task<Page> GetPage(Guid pageId, CancellationToken cancellationToken);
 
-    Task SavePage(Page page, CancellationToken cancellationToken);
+    // todo: path = "home", "home/about", "home/about/company", "home/contacts"
+    //Task<Page> GetPageByPath(string path, CancellationToken cancellationToken);
 }
