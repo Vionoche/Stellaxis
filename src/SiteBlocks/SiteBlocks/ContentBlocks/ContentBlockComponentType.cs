@@ -6,5 +6,5 @@ public record ContentBlockComponentType(
     ContentBlockComponentTypeName Name,
     Type ComponentType);
     
-public record ContentBlockComponentTypeName(
+public record struct ContentBlockComponentTypeName(
     string Value);

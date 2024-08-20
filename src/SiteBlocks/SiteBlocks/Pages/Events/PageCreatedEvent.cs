@@ -3,15 +3,23 @@ using ChillSite.SiteBlocks.Common;
 
 namespace ChillSite.SiteBlocks.Pages.Events;
 
-public record PageCreatedEvent(
-    DateTime Timestamp,
-    Guid PageId)
-    : DomainEventBase(Timestamp)
+public record PageCreatedEvent : DomainEventBase
 {
+    public Guid PageId { get; }
+    
+    public PageCreatedEvent(
+        Guid eventId,
+        DateTime occuredOn,
+        Guid pageId) : base(eventId, occuredOn)
+    {
+        PageId = pageId;
+    }
+    
     public static PageCreatedEvent Create(IDateTimeProvider dateTimeProvider, Guid pageId)
     {
         return new PageCreatedEvent(
-            Timestamp: dateTimeProvider.UtcNow,
+            eventId: Guid.NewGuid(),
+            occuredOn: dateTimeProvider.UtcNow,
             pageId);
     }
 }

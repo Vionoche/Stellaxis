@@ -3,11 +3,11 @@ using ChillSite.SiteBlocks.Common;
 
 namespace ChillSite.SiteBlocks.Pages.Events;
 
-public record PageUnpublishedEvent : DomainEventBase
+public record PageContentUpdatedEvent : DomainEventBase
 {
     public Guid PageId { get; }
 
-    public PageUnpublishedEvent(
+    public PageContentUpdatedEvent(
         Guid eventId,
         DateTime occuredOn,
         Guid pageId) : base(eventId, occuredOn)
@@ -15,9 +15,9 @@ public record PageUnpublishedEvent : DomainEventBase
         PageId = pageId;
     }
     
-    public static PageUnpublishedEvent Create(IDateTimeProvider dateTimeProvider, Guid pageId)
+    public static PageContentUpdatedEvent Create(IDateTimeProvider dateTimeProvider, Guid pageId)
     {
-        return new PageUnpublishedEvent(
+        return new PageContentUpdatedEvent(
             eventId: Guid.NewGuid(),
             occuredOn: dateTimeProvider.UtcNow,
             pageId);

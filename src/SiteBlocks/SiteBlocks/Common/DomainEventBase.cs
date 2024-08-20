@@ -4,11 +4,12 @@ namespace ChillSite.SiteBlocks.Common;
 
 public abstract record DomainEventBase : IDomainEvent
 {
-    public Guid EventId { get; } = Guid.NewGuid();
+    public Guid EventId { get; }
     public DateTime OccuredOn { get; }
-
-    protected DomainEventBase(DateTime timestamp)
+    
+    protected DomainEventBase(Guid eventId, DateTime occuredOn)
     {
-        OccuredOn = timestamp;
+        EventId = eventId;
+        OccuredOn = occuredOn;
     }
 }

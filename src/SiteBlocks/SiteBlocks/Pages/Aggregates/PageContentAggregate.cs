@@ -88,7 +88,7 @@ public sealed class PageContentAggregate
 
     private void SendPageContentBlocksUpdatedEvent()
     {
-        _domainEventBuffer.AddEvent(PageContentBlocksUpdatedEvent.Create(_dateTimeProvider, Page.PageId));
+        _domainEventBuffer.AddEvent(PageContentUpdatedEvent.Create(_dateTimeProvider, Page.PageId));
     }
 
     private readonly IDateTimeProvider _dateTimeProvider;
