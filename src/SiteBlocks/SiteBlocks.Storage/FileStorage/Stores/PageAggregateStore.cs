@@ -32,7 +32,7 @@ public class PageAggregateStore : IPageAggregateStore
         var pageEntity = new PageFileEntity
         {
             PageId = page.PageId,
-            TemplateComponentTypeName = page.TemplateComponentType.ComponentName.Name,
+            TemplateComponentTypeName = page.TemplateComponentType.Name.Name,
             Name = page.Name,
             Title = page.Title,
             Description = page.Description,
@@ -56,12 +56,12 @@ public class PageAggregateStore : IPageAggregateStore
         return Task.CompletedTask;
     }
 
-    public Task<PageContentBlocksAggregate> GetPageContentBlocksAggregate(Guid pageId, CancellationToken cancellationToken)
+    public Task<PageContentAggregate> GetPageContentBlocksAggregate(Guid pageId, CancellationToken cancellationToken)
     {
         throw new NotImplementedException();
     }
 
-    public Task SavePageContentBlocksAggregate(PageContentBlocksAggregate pageContentBlocksAggregate, CancellationToken cancellationToken)
+    public Task SavePageContentBlocksAggregate(PageContentAggregate pageContentAggregate, CancellationToken cancellationToken)
     {
         throw new NotImplementedException();
     }

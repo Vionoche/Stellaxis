@@ -10,7 +10,7 @@ public interface IPageAggregateStore
 
     Task SavePageAggregate(PageAggregate pageAggregate, CancellationToken cancellationToken);
     
-    Task<PageContentBlocksAggregate> GetPageContentBlocksAggregate(Guid pageId, CancellationToken cancellationToken);
+    Task<PageContentAggregate> GetPageContentBlocksAggregate(Guid pageId, CancellationToken cancellationToken);
 
-    Task SavePageContentBlocksAggregate(PageContentBlocksAggregate pageContentBlocksAggregate, CancellationToken cancellationToken);
+    Task SavePageContentBlocksAggregate(PageContentAggregate pageContentAggregate, CancellationToken cancellationToken);
 }

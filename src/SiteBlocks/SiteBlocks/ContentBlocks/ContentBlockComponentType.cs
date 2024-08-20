@@ -3,5 +3,8 @@
 namespace ChillSite.SiteBlocks.ContentBlocks;
 
 public record ContentBlockComponentType(
-    ContentBlockComponentName Name,
-    Type Type);
+    ContentBlockComponentTypeName Name,
+    Type ComponentType);
+    
+public record ContentBlockComponentTypeName(
+    string Value);

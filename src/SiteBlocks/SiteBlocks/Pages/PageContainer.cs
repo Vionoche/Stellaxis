@@ -1,4 +1,10 @@
-﻿namespace ChillSite.SiteBlocks.Pages;
+﻿using System.Collections.Generic;
+
+namespace ChillSite.SiteBlocks.Pages;
 
 public record PageContainer(
-    string Name);
+    PageContainerName Name,
+    IReadOnlyCollection<PageContentBlock> PageContentBlocks);
+    
+public record struct PageContainerName(
+    string Value);

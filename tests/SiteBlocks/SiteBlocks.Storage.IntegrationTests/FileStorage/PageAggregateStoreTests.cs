@@ -12,11 +12,11 @@ public class PageAggregateStoreTests
     public async Task Test_PageAggregate_Saving()
     {
         var mainLayout = new LayoutComponentType(
-            new LayoutComponentName("MainLayout"),
+            new LayoutComponentTypeName("MainLayout"),
             typeof(object));
 
         var pageTemplate = new TemplateComponentType(
-            new TemplateComponentName("HomePage"),
+            new TemplateComponentTypeName("HomePage"),
             typeof(object),
             mainLayout);
 

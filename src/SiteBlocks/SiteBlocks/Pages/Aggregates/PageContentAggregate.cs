@@ -7,7 +7,7 @@ using ChillSite.SiteBlocks.Pages.Events;
 
 namespace ChillSite.SiteBlocks.Pages.Aggregates;
 
-public sealed class PageContentBlocksAggregate
+public sealed class PageContentAggregate
 {
     public Page Page { get; private set; }
 
@@ -15,7 +15,7 @@ public sealed class PageContentBlocksAggregate
     
     public IReadOnlyDictionary<PageContainer, ContentBlock[]> ContentBlocksMap => _contentBlocksMap;
 
-    public PageContentBlocksAggregate(
+    public PageContentAggregate(
         IDateTimeProvider dateTimeProvider,
         IDomainEventBuffer domainEventBuffer,
         Page page,

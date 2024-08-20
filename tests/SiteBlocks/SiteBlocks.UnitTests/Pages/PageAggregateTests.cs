@@ -14,11 +14,11 @@ public class PageAggregateTests
     public void Test_Page_Creation_And_Publication()
     {
         var mainLayout = new LayoutComponentType(
-            new LayoutComponentName("MainLayout"),
+            new LayoutComponentTypeName("MainLayout"),
             typeof(object));
 
         var pageTemplate = new TemplateComponentType(
-            new TemplateComponentName("HomePage"),
+            new TemplateComponentTypeName("HomePage"),
             typeof(object),
             mainLayout);
         
@@ -53,11 +53,11 @@ public class PageAggregateTests
     public void Test_Page_Name_Validation()
     {
         var mainLayout = new LayoutComponentType(
-            new LayoutComponentName("MainLayout"),
+            new LayoutComponentTypeName("MainLayout"),
             typeof(object));
 
         var pageTemplate = new TemplateComponentType(
-            new TemplateComponentName("HomePage"),
+            new TemplateComponentTypeName("HomePage"),
             typeof(object),
             mainLayout);
         

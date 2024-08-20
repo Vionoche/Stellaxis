@@ -3,5 +3,8 @@
 namespace ChillSite.SiteBlocks.Pages;
 
 public record LayoutComponentType(
-    LayoutComponentName ComponentName,
-    Type Type);
+    LayoutComponentTypeName Name,
+    Type ComponentType);
+    
+public record struct LayoutComponentTypeName(
+    string Value);

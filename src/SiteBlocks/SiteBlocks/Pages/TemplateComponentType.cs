@@ -3,6 +3,9 @@
 namespace ChillSite.SiteBlocks.Pages;
 
 public record TemplateComponentType(
-    TemplateComponentName ComponentName,
-    Type Type,
+    TemplateComponentTypeName Name,
+    Type ComponentType,
     LayoutComponentType LayoutComponentType);
+    
+public record struct TemplateComponentTypeName(
+    string Value);
