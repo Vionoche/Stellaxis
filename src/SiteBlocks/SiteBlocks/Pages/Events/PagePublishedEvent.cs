@@ -3,7 +3,7 @@ using ChillSite.SiteBlocks.Common;
 
 namespace ChillSite.SiteBlocks.Pages.Events;
 
-public record PagePublishedEvent: DomainEventBase
+public record PagePublishedEvent: DomainEvent
 {
     public Guid PageId { get; }
 

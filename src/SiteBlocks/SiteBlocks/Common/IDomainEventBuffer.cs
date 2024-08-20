@@ -4,7 +4,7 @@ namespace ChillSite.SiteBlocks.Common;
 
 public interface IDomainEventBuffer
 {
-    IEnumerable<IDomainEvent> DomainEvents { get; }
+    IEnumerable<DomainEvent> DomainEvents { get; }
     
-    void AddEvent(IDomainEvent eventData);
+    void AddEvent(DomainEvent eventData);
 }

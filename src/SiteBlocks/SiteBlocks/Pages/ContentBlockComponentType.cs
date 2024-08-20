@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ChillSite.SiteBlocks.ContentBlocks;
+namespace ChillSite.SiteBlocks.Pages;
 
 public record ContentBlockComponentType(
     ContentBlockComponentTypeName Name,

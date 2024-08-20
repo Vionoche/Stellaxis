@@ -5,9 +5,9 @@ namespace ChillSite.SiteBlocks.Common;
 
 public class EmptyDomainEventBuffer : IDomainEventBuffer
 {
-    public IEnumerable<IDomainEvent> DomainEvents => Array.Empty<IDomainEvent>();
+    public IEnumerable<DomainEvent> DomainEvents => Array.Empty<DomainEvent>();
 
-    public void AddEvent(IDomainEvent domainEvent)
+    public void AddEvent(DomainEvent domainEvent)
     {
     }
 }
