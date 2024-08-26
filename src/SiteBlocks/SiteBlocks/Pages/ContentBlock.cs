@@ -3,5 +3,5 @@
 namespace ChillSite.SiteBlocks.Pages;
 
 public abstract record ContentBlock(
-    Guid ContentBlockId,
+    Guid ContentBlockId, // todo: maybe string or add content block name?
     ContentBlockComponentType ContentBlockComponentType);

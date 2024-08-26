@@ -1,7 +1,6 @@
-﻿using ChillSite.SiteBlocks.ContentBlocks;
-
-namespace ChillSite.SiteBlocks.Pages;
+﻿namespace ChillSite.SiteBlocks.Pages;
 
 public record PageContentBlock(
+    PageContainerName Name,
     int ContainerPosition,
     ContentBlock ContentBlock);

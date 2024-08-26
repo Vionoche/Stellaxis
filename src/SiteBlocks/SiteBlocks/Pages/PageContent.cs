@@ -4,4 +4,4 @@ namespace ChillSite.SiteBlocks.Pages;
 
 public record PageContent(
     Page Page,
-    IDictionary<PageContainerName, PageContainer> PageContainers);
+    IReadOnlyDictionary<PageContainerName, PageContainer> PageContainers);
