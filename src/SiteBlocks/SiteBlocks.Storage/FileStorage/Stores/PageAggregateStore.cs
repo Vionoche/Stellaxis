@@ -32,7 +32,7 @@ public class PageAggregateStore : IPageAggregateStore
         var pageEntity = new PageFileEntity
         {
             PageId = page.PageId,
-            TemplateComponentTypeName = page.TemplateComponentType.Name.Name,
+            TemplateComponentTypeName = page.TemplateComponentType.Name.Value,
             Name = page.Name,
             Title = page.Title,
             Description = page.Description,
