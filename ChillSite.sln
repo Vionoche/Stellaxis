@@ -31,9 +31,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{D03E
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TemplateSite", "TemplateSite", "{B8445E49-A016-4354-B2B8-21E8AA5DB980}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemplateSite", "samples\TemplateSite\TemplateSite\TemplateSite\TemplateSite.csproj", "{3425A623-FFE4-4780-9F0D-3843F28CFCEF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemplateSite.Server", "samples\TemplateSite\TemplateSite.Server\TemplateSite.Server.csproj", "{3425A623-FFE4-4780-9F0D-3843F28CFCEF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemplateSite.Client", "samples\TemplateSite\TemplateSite\TemplateSite.Client\TemplateSite.Client.csproj", "{E8738D4D-0326-4588-859E-E1DE58105FD3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemplateSite.Client", "samples\TemplateSite\TemplateSite.Client\TemplateSite.Client.csproj", "{E8738D4D-0326-4588-859E-E1DE58105FD3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
