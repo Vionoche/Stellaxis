@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using TemplateSite.Client.Pages;
-using TemplateSite.Components;
+using TemplateSite.Server.Components;
 
 namespace TemplateSite
 {
