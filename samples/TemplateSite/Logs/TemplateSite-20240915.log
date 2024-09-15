@@ -1,0 +1,50 @@
+[22:52:32 INF] User profile is available. Using 'C:\Users\viono\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[22:52:32 INF] Application user name: ASHENVALE\viono
+[22:52:32 INF] Runtime version: .NET 8.0.8
+[22:52:32 INF] Now listening on: http://localhost:5037
+[22:52:32 INF] Application started. Press Ctrl+C to shut down.
+[22:52:32 INF] Hosting environment: Development
+[22:52:32 INF] Content root path: C:\Projects\Stellaxis\samples\TemplateSite\TemplateSite.Server
+[22:52:43 INF] Request starting HTTP/1.1 GET http://localhost:5037/weather - null null
+[22:52:43 INF] Request finished HTTP/1.1 GET http://localhost:5037/weather - 200 null text/html; charset=utf-8 75.4335ms
+[22:52:43 INF] Request starting HTTP/1.1 GET http://localhost:5037/_framework/aspnetcore-browser-refresh.js - null null
+[22:52:43 INF] Request starting HTTP/1.1 GET http://localhost:5037/_framework/blazor.web.js - null null
+[22:52:43 INF] Request finished HTTP/1.1 GET http://localhost:5037/_framework/aspnetcore-browser-refresh.js - 200 13401 application/javascript; charset=utf-8 2.7095ms
+[22:52:43 INF] The file /_framework/blazor.web.js was not modified
+[22:52:43 INF] Request finished HTTP/1.1 GET http://localhost:5037/_framework/blazor.web.js - 304 null text/javascript 5.8906ms
+[22:52:50 INF] Request starting HTTP/1.1 GET http://localhost:5037/counter - null null
+[22:52:50 INF] Request finished HTTP/1.1 GET http://localhost:5037/counter - 200 null text/html; charset=utf-8 41.4218ms
+[22:52:50 INF] Request starting HTTP/1.1 GET http://localhost:5037/_framework/dotnet.js - null null
+[22:52:50 INF] Sending file. Request path: '/_framework/dotnet.js.gz'. Physical path: 'C:\Projects\Stellaxis\samples\TemplateSite\TemplateSite.Client\bin\Debug\net8.0\wwwroot\_framework\dotnet.js.gz'
+[22:52:50 INF] Request finished HTTP/1.1 GET http://localhost:5037/_framework/dotnet.js.gz - 200 11573 text/javascript 12.081ms
+[22:52:50 INF] Request starting HTTP/1.1 GET http://localhost:5037/_framework/blazor.boot.json - null null
+[22:52:50 INF] Sending file. Request path: '/_framework/blazor.boot.json.gz'. Physical path: 'C:\Projects\Stellaxis\samples\TemplateSite\TemplateSite.Client\bin\Debug\net8.0\wwwroot\_framework\blazor.boot.json.gz'
+[22:52:50 INF] Request finished HTTP/1.1 GET http://localhost:5037/_framework/blazor.boot.json.gz - 200 8822 application/json 9.3972ms
+[22:52:50 INF] Request starting HTTP/1.1 GET http://localhost:5037/_framework/dotnet.runtime.8.0.8.80cvijctdx.js - null null
+[22:52:50 INF] Request starting HTTP/1.1 GET http://localhost:5037/_framework/dotnet.native.8.0.8.93i67mqfmb.js - null null
+[22:52:50 INF] Request starting HTTP/1.1 GET http://localhost:5037/_blazor/initializers - null null
+[22:52:50 INF] Request finished HTTP/1.1 GET http://localhost:5037/_blazor/initializers - 200 null application/json; charset=utf-8 3.4806ms
+[22:52:50 INF] Sending file. Request path: '/_framework/dotnet.native.8.0.8.93i67mqfmb.js.gz'. Physical path: 'C:\Projects\Stellaxis\samples\TemplateSite\TemplateSite.Client\bin\Debug\net8.0\wwwroot\_framework\dotnet.native.8.0.8.93i67mqfmb.js.gz'
+[22:52:50 INF] Sending file. Request path: '/_framework/dotnet.runtime.8.0.8.80cvijctdx.js.gz'. Physical path: 'C:\Projects\Stellaxis\samples\TemplateSite\TemplateSite.Client\bin\Debug\net8.0\wwwroot\_framework\dotnet.runtime.8.0.8.80cvijctdx.js.gz'
+[22:52:50 INF] Request finished HTTP/1.1 GET http://localhost:5037/_framework/dotnet.native.8.0.8.93i67mqfmb.js.gz - 200 36404 text/javascript 6.7241ms
+[22:52:50 INF] Request finished HTTP/1.1 GET http://localhost:5037/_framework/dotnet.runtime.8.0.8.80cvijctdx.js.gz - 200 65643 text/javascript 8.2726ms
+[22:52:50 INF] Request starting HTTP/1.1 GET http://localhost:5037/appsettings.Development.json - null null
+[22:52:50 INF] The file /appsettings.Development.json was not modified
+[22:52:50 INF] Request finished HTTP/1.1 GET http://localhost:5037/appsettings.Development.json - 304 null application/json 4.1134ms
+[22:52:50 INF] Request starting HTTP/1.1 POST http://localhost:5037/_blazor/negotiate?negotiateVersion=1 - null 0
+[22:52:50 INF] Request starting HTTP/1.1 GET http://localhost:5037/appsettings.json - null null
+[22:52:50 INF] The file /appsettings.json was not modified
+[22:52:50 INF] Request finished HTTP/1.1 GET http://localhost:5037/appsettings.json - 304 null application/json 3.463ms
+[22:52:50 INF] Request finished HTTP/1.1 POST http://localhost:5037/_blazor/negotiate?negotiateVersion=1 - 200 316 application/json 8.4634ms
+[22:52:50 INF] Request starting HTTP/1.1 GET http://localhost:5037/_blazor?id=UpHdF8ZR3W_EI0JaLect7g - null null
+[22:52:51 INF] Request starting HTTP/1.1 GET http://localhost:5037/_framework/TemplateSite.Client.wasm - null null
+[22:52:51 INF] Sending file. Request path: '/_framework/TemplateSite.Client.wasm.gz'. Physical path: 'C:\Projects\Stellaxis\samples\TemplateSite\TemplateSite.Client\bin\Debug\net8.0\wwwroot\_framework\TemplateSite.Client.wasm.gz'
+[22:52:51 INF] Request finished HTTP/1.1 GET http://localhost:5037/_framework/TemplateSite.Client.wasm.gz - 200 3759 application/wasm 3.1707ms
+[22:52:51 INF] Request starting HTTP/1.1 GET http://localhost:5037/_framework/TemplateSite.Client.pdb - null null
+[22:52:51 INF] Sending file. Request path: '/_framework/TemplateSite.Client.pdb.gz'. Physical path: 'C:\Projects\Stellaxis\samples\TemplateSite\TemplateSite.Client\bin\Debug\net8.0\wwwroot\_framework\TemplateSite.Client.pdb.gz'
+[22:52:51 INF] Request finished HTTP/1.1 GET http://localhost:5037/_framework/TemplateSite.Client.pdb.gz - 200 10036 application/octet-stream 2.8053ms
+[22:52:54 INF] Request starting HTTP/1.1 GET http://localhost:5037/weather - null null
+[22:52:54 INF] Request finished HTTP/1.1 GET http://localhost:5037/weather - 200 null text/html; charset=utf-8 6.2589ms
+[22:52:57 INF] Application is shutting down...
+[22:52:57 INF] Request finished HTTP/1.1 GET http://localhost:5037/_blazor?id=UpHdF8ZR3W_EI0JaLect7g - 101 null null 6632.1576ms
+[22:52:57 INF] Host terminated clearly
