@@ -4,7 +4,7 @@ componentType: "TemplateSite.Server.Components.Layout.Header"
 
 blockData:
   title: "Template Site"
-  
+
   navLinks:
     - title: "Home"
       url: ""

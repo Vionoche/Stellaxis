@@ -1,0 +1,18 @@
+blockId: "7fadd788-c4d0-4432-8111-e282f8b0fe88"
+blockName: "TextBlockWithSharedText"
+componentType: "TemplateSite.Server.Components.ContentBlocks.TextBlockComponent"
+shared: true
+blockData: |
+  ## Tables
+
+  | Column 1 | Column 2 | Column 3 |
+  |----------|----------|----------|
+  | Value 1  | Value 2  | Value 3  |
+
+  ## Blockquotes
+
+  > "Believe you can and you're halfway there." - Theodore Roosevelt
+
+  ## Emphasis
+
+  This text is **bold** and _italicized_. We can even combine them: ***this is bold and italicized***.
