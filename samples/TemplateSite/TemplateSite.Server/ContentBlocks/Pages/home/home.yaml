@@ -25,7 +25,7 @@ containers:
         componentType: "TemplateSite.Server.Components.ContentBlocks.TextBlockComponent"
         blockData:
           text: |
-            # Random Test Text Generator
+            # Embedded Text Example
             This is a sample of randomly generated text using Markdown formatting. Here's what we've got:
             
             ## Main Content
@@ -36,15 +36,13 @@ containers:
             - Item 2
             - Item 3
 
-      - blockId: "7fadd788-c4d0-4432-8111-e282f8b0fe88"
+      - blockId: "78034d4c-6770-4320-aa71-293c1789d103"
         blockName: "TextBlockWithMarkdownFile"
         componentType: "TemplateSite.Server.Components.ContentBlocks.TextBlockComponent"
-        file: "home-text-block-example.md"
+        blockData:
+          file: "home-text-block-example.md"
 
       - blockId: "7fadd788-c4d0-4432-8111-e282f8b0fe88"
-        blockName: "TextBlockWithSharedText"
-        componentType: "TemplateSite.Server.Components.ContentBlocks.TextBlockComponent"
-        file: "~\ContentBlocks\Shared\shared-text-block-example.md"
         shared: true
 
   - containerName: "SideBar"

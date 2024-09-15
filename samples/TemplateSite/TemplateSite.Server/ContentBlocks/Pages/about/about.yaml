@@ -1,0 +1,8 @@
+﻿pageId: "94e35f06-0f1b-4b59-9dec-0c4da8a00e90"
+pageName: "About"
+componentType: "TemplateSite.Server.Components.Layout.Templates.OneColumn"
+
+layout:
+  componentType: "TemplateSite.Server.Components.Layout.MainLayout"
+
+title: "About"
