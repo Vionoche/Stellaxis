@@ -1,7 +1,7 @@
 ﻿using System.Text.RegularExpressions;
 using FluentValidation;
 
-namespace ChillSite.SiteBlocks.Pages.Rules;
+namespace Stellaxis.SiteBlocks.Pages.Rules;
 
 public record PageNameUpdatingRule(
     string Name);

@@ -1,4 +1,4 @@
-﻿namespace ChillSite.SiteBlocks.Pages;
+﻿namespace Stellaxis.SiteBlocks.Pages;
 
 public record PageContentBlock(
     PageContainerName Name,

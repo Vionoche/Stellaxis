@@ -1,7 +1,7 @@
 ﻿using System;
-using ChillSite.SiteBlocks.Common;
+using Stellaxis.SiteBlocks.Common;
 
-namespace ChillSite.SiteBlocks.Pages.Events;
+namespace Stellaxis.SiteBlocks.Pages.Events;
 
 public record PageUnpublishedEvent : DomainEvent
 {

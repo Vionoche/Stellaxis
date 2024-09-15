@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ChillSite.SiteBlocks.Common;
+namespace Stellaxis.SiteBlocks.Common;
 
 public class EmptyDomainEventBuffer : IDomainEventBuffer
 {

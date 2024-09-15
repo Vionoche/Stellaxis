@@ -1,7 +1,7 @@
-﻿using ChillSite.SiteBlocks.Storage.Database.Entities;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using Stellaxis.SiteBlocks.Storage.Database.Entities;
 
-namespace ChillSite.SiteBlocks.Storage.Database;
+namespace Stellaxis.SiteBlocks.Storage.Database;
 
 public class SiteBlocksContext : DbContext
 {

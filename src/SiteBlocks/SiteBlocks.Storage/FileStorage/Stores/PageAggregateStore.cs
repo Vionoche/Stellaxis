@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using ChillSite.SiteBlocks.Common;
-using ChillSite.SiteBlocks.Pages.Aggregates;
-using ChillSite.SiteBlocks.Storage.FileStorage.Entities;
-using YamlDotNet.Core;
+using Stellaxis.SiteBlocks.Common;
+using Stellaxis.SiteBlocks.Pages.Aggregates;
+using Stellaxis.SiteBlocks.Storage.FileStorage.Entities;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
 
-namespace ChillSite.SiteBlocks.Storage.FileStorage.Stores;
+namespace Stellaxis.SiteBlocks.Storage.FileStorage.Stores;
 
 public class PageAggregateStore : IPageAggregateStore
 {

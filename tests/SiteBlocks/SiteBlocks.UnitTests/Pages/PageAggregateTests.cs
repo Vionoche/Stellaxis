@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
-using ChillSite.SiteBlocks.Common;
-using ChillSite.SiteBlocks.Pages;
-using ChillSite.SiteBlocks.Pages.Aggregates;
 using FluentAssertions;
+using Stellaxis.SiteBlocks.Common;
+using Stellaxis.SiteBlocks.Pages;
+using Stellaxis.SiteBlocks.Pages.Aggregates;
 using Xunit;
 
 namespace ChillSite.SiteBlocks.UnitTests.Pages;

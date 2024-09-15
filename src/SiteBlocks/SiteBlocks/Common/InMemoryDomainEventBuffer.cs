@@ -1,7 +1,7 @@
 ﻿using System.Collections.Concurrent;
 using System.Collections.Generic;
 
-namespace ChillSite.SiteBlocks.Common;
+namespace Stellaxis.SiteBlocks.Common;
 
 public class InMemoryDomainEventBuffer : IDomainEventBuffer
 {

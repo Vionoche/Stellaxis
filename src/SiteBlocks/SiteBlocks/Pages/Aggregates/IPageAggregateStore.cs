@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace ChillSite.SiteBlocks.Pages.Aggregates;
+namespace Stellaxis.SiteBlocks.Pages.Aggregates;
 
 public interface IPageAggregateStore
 {

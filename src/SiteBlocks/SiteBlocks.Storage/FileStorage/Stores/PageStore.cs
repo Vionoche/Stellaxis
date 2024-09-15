@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using ChillSite.SiteBlocks.Pages;
+using Stellaxis.SiteBlocks.Pages;
 
-namespace ChillSite.SiteBlocks.Storage.FileStorage.Stores;
+namespace Stellaxis.SiteBlocks.Storage.FileStorage.Stores;
 
 public class PageStore : IPageStore
 {

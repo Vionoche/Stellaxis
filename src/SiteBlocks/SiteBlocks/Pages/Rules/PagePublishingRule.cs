@@ -1,8 +1,8 @@
 ﻿using System;
-using ChillSite.SiteBlocks.Common;
 using FluentValidation;
+using Stellaxis.SiteBlocks.Common;
 
-namespace ChillSite.SiteBlocks.Pages.Rules;
+namespace Stellaxis.SiteBlocks.Pages.Rules;
 
 public record PagePublishingRule(
     bool IsPublished,

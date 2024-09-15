@@ -1,10 +1,10 @@
 ﻿using System;
-using ChillSite.SiteBlocks.Common;
-using ChillSite.SiteBlocks.Pages.Events;
-using ChillSite.SiteBlocks.Pages.Rules;
 using FluentValidation;
+using Stellaxis.SiteBlocks.Common;
+using Stellaxis.SiteBlocks.Pages.Events;
+using Stellaxis.SiteBlocks.Pages.Rules;
 
-namespace ChillSite.SiteBlocks.Pages;
+namespace Stellaxis.SiteBlocks.Pages;
 
 public record Page(
     Guid PageId,

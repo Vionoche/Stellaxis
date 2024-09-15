@@ -2,7 +2,7 @@
 using YamlDotNet.Core;
 using YamlDotNet.Serialization;
 
-namespace ChillSite.SiteBlocks.Storage.FileStorage.Entities;
+namespace Stellaxis.SiteBlocks.Storage.FileStorage.Entities;
 
 public class PageFileEntity
 {

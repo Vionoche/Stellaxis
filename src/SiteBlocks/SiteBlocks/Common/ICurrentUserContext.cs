@@ -1,4 +1,4 @@
-﻿namespace ChillSite.SiteBlocks.Common;
+﻿namespace Stellaxis.SiteBlocks.Common;
 
 public interface ICurrentUserContext
 {

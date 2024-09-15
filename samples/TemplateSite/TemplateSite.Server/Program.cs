@@ -1,10 +1,9 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using TemplateSite.Client.Pages;
 using TemplateSite.Server.Components;
 
-namespace TemplateSite
+namespace TemplateSite.Server
 {
     public class Program
     {

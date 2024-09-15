@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ChillSite.SiteBlocks.Pages;
+namespace Stellaxis.SiteBlocks.Pages;
 
 public record PageContainer(
     PageContainerName Name,

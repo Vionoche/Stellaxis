@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace ChillSite.SiteBlocks.Pages;
+namespace Stellaxis.SiteBlocks.Pages;
 
 public interface IPageStore
 {

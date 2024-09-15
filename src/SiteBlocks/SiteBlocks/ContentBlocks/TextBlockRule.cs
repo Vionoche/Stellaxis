@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace ChillSite.SiteBlocks.ContentBlocks;
+namespace Stellaxis.SiteBlocks.ContentBlocks;
 
 public record TextBlockRule(
     string Text);

@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using ChillSite.SiteBlocks.Common;
-using ChillSite.SiteBlocks.Pages.Events;
+﻿using System.Collections.Generic;
+using Stellaxis.SiteBlocks.Common;
+using Stellaxis.SiteBlocks.Pages.Events;
 
-namespace ChillSite.SiteBlocks.Pages.Aggregates;
+namespace Stellaxis.SiteBlocks.Pages.Aggregates;
 
 public sealed class PageContentAggregate
 {

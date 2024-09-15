@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ChillSite.SiteBlocks.Storage.Database.Entities;
+namespace Stellaxis.SiteBlocks.Storage.Database.Entities;
 
 public class PageEntity
 {

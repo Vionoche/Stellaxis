@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <AssemblyName>ChillSite.SiteBlocks.Storage</AssemblyName>
-        <RootNamespace>ChillSite.SiteBlocks.Storage</RootNamespace>
+        <AssemblyName>Stellaxis.SiteBlocks.Storage</AssemblyName>
+        <RootNamespace>Stellaxis.SiteBlocks.Storage</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>

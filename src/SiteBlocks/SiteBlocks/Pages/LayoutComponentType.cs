@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ChillSite.SiteBlocks.Pages;
+namespace Stellaxis.SiteBlocks.Pages;
 
 public record LayoutComponentType(
     LayoutComponentTypeName Name,

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ChillSite.SiteBlocks.Common;
+namespace Stellaxis.SiteBlocks.Common;
 
 public abstract record DomainEvent(
     Guid EventId,

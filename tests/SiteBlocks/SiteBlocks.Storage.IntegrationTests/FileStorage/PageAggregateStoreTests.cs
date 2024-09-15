@@ -1,8 +1,8 @@
 ﻿using System.Text;
-using ChillSite.SiteBlocks.Common;
-using ChillSite.SiteBlocks.Pages;
-using ChillSite.SiteBlocks.Pages.Aggregates;
-using ChillSite.SiteBlocks.Storage.FileStorage.Stores;
+using Stellaxis.SiteBlocks.Common;
+using Stellaxis.SiteBlocks.Pages;
+using Stellaxis.SiteBlocks.Pages.Aggregates;
+using Stellaxis.SiteBlocks.Storage.FileStorage.Stores;
 
 namespace SiteBlocks.Storage.IntegrationTests.FileStorage;
 

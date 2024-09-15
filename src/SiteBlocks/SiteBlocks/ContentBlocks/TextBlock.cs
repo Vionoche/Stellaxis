@@ -1,8 +1,8 @@
 ﻿using System;
-using ChillSite.SiteBlocks.Pages;
 using FluentValidation;
+using Stellaxis.SiteBlocks.Pages;
 
-namespace ChillSite.SiteBlocks.ContentBlocks;
+namespace Stellaxis.SiteBlocks.ContentBlocks;
 
 public sealed record TextBlock(
     Guid ContentBlockId,
