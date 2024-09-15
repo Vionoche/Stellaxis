@@ -1,16 +1,16 @@
-﻿BlockId: "a42749c3-ea21-497c-bcb9-fabfb2914c1a"
-BlockName: "MainHeader"
-ComponentType: "TemplateSite.Server.Components.Layout.Header"
+﻿blockId: "a42749c3-ea21-497c-bcb9-fabfb2914c1a"
+blockName: "MainHeader"
+componentType: "TemplateSite.Server.Components.Layout.Header"
 
-BlockData:
-  Title: "Template Site"
+blockData:
+  title: "Template Site"
   
-  NavLinks:
-    - Title: "Home"
-      Url: ""
-    - Title: "Counter"
-      Url: "counter"
-    - Title: "Weather"
-      Url: "weather"
-    - Title: "About"
-      Url: "about"
+  navLinks:
+    - title: "Home"
+      url: ""
+    - title: "Counter"
+      url: "counter"
+    - title: "Weather"
+      url: "weather"
+    - title: "About"
+      url: "about"
