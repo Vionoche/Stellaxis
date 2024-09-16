@@ -1,5 +1,7 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -13,14 +15,21 @@ namespace Stellaxis.SiteBlocks.Components;
 public partial class SxMarkdownContent : ComponentBase
 {
     [Parameter]
-    public string? FilePath { get; set; }
+    public Func<SxMarkdownContentContext, string>? FilePathFunc { get; set; }
     
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
-        _content = GetContentFromFragment();
+        if (ChildContent != null)
+        {
+            _content = GetContentFromFragment();
+        }
+        else if (FilePathFunc != null)
+        {
+            _content = await GetContentFromFile(FilePathFunc(new SxMarkdownContentContext()));
+        }
     }
 
     private MarkupString GetContentFromFragment()
@@ -53,7 +62,7 @@ public partial class SxMarkdownContent : ComponentBase
         return new MarkupString(html);
     }
     
-    private async Task<MarkupString> GetContentFromFile(string filePath)
+    private static async Task<MarkupString> GetContentFromFile(string filePath)
     {
         var markdownText = await File.ReadAllTextAsync(filePath);
         var html = Markdown.ToHtml(markdownText);
@@ -64,4 +73,18 @@ public partial class SxMarkdownContent : ComponentBase
 
     [GeneratedRegex(@"\r\n\s*")]
     private static partial Regex DetectIndentsRegex();
+}
+
+public class SxMarkdownContentContext
+{
+    public string GetSourceCodePath(string filePath, [CallerFilePath] string sourceFilePath = "")
+    {
+        var sourceFileInfo = new FileInfo(sourceFilePath);
+
+        var sourceDirectoryPath = sourceFileInfo.Directory?.FullName;
+        
+        var sourceCodeDirectory = Path.GetPathRoot(sourceFilePath);
+        
+        return Path.Combine(sourceCodeDirectory, filePath);
+    }
 }

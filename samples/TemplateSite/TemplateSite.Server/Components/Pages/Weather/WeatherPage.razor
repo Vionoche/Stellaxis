@@ -6,9 +6,9 @@
 
 <p>This component demonstrates showing data.</p>
 
-<SxMarkdownContent FilePath="Content/content-text.md" />
+<SxMarkdownContent FilePathFunc="@((context) => context.GetSourceCodePath("Content/content-text.md"))" />
 
-<SxMarkdownContent FilePath="~/Components/Content/shared-content-text.md" />
+<SxMarkdownContent FilePathFunc="@((_) => "~/Components/Content/shared-content-text.md")" />
 
 <SxMarkdownContent>
     # Embedded Example
