@@ -43,15 +43,12 @@ public partial class SxMarkdownContent : ComponentBase
         
 #pragma warning restore BL0006
 
-        var str = markdownBuilder.ToString();
-        var reg = DetectIndents();
-
-        var cleared = Regex.Replace(str, reg, "\r\n");
+        var markdown = DetectIndentsRegex().Replace(markdownBuilder.ToString(), "\r\n");
         
         var markdownPipeline = new MarkdownPipelineBuilder()
             .Build();
         
-        var html = Markdown.ToHtml(markdownBuilder.ToString(), markdownPipeline);
+        var html = Markdown.ToHtml(markdown, markdownPipeline);
         
         return new MarkupString(html);
     }
@@ -65,6 +62,6 @@ public partial class SxMarkdownContent : ComponentBase
 
     private MarkupString _content;
 
-    [GeneratedRegex(@"\\r\n\s*")]
-    private static partial Regex DetectIndents();
+    [GeneratedRegex(@"\r\n\s*")]
+    private static partial Regex DetectIndentsRegex();
 }
