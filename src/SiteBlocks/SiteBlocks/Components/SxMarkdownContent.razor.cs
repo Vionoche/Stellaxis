@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -77,14 +78,20 @@ public partial class SxMarkdownContent : ComponentBase
 
 public class SxMarkdownContentContext
 {
-    public string GetSourceCodePath(string filePath, [CallerFilePath] string sourceFilePath = "")
+    public string GetSourceCodePath<T>(string filePath)
     {
-        var sourceFileInfo = new FileInfo(sourceFilePath);
+        var processFullPath = Environment.ProcessPath;
+        var processFileInfo = new FileInfo(processFullPath);
+        var processDirectoryPath = processFileInfo.Directory.FullName;
+        
+        var componentType = typeof(T);
+        var componentNamespace = componentType.Namespace;
+        var assemblyNamespace = componentType.Assembly.GetName().Name;
+        var deltaNamespace = componentNamespace.Substring(assemblyNamespace.Length, componentNamespace.Length - assemblyNamespace.Length);
+        var deltaPath = deltaNamespace.Replace('.', Path.DirectorySeparatorChar).TrimStart(Path.DirectorySeparatorChar);
+        
+        var result = Path.Combine(processDirectoryPath, deltaPath, filePath);
 
-        var sourceDirectoryPath = sourceFileInfo.Directory?.FullName;
-        
-        var sourceCodeDirectory = Path.GetPathRoot(sourceFilePath);
-        
-        return Path.Combine(sourceCodeDirectory, filePath);
+        return result;
     }
 }
