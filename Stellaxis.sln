@@ -9,6 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 		.gitignore = .gitignore
 		CleanObjBinFolders.bat = CleanObjBinFolders.bat
 		Directory.Build.props = Directory.Build.props
+		readme.md = readme.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{694C921B-9AF0-4914-8ED1-7F0339857925}"
