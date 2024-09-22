@@ -9,13 +9,10 @@ public static class SxMarkdownContentExtensions
     public static string GetFromSourceCodePath<T>(this T component, string filePath) 
         where T : ComponentBase
     {
-        var processFullPath = Environment.ProcessPath;
-        ArgumentException.ThrowIfNullOrEmpty(processFullPath, nameof(processFullPath));
+        ArgumentException.ThrowIfNullOrEmpty(filePath, nameof(filePath));
         
-        var processFileInfo = new FileInfo(processFullPath);
-        var processDirectoryPath = processFileInfo.Directory?.FullName;
-        ArgumentException.ThrowIfNullOrEmpty(processDirectoryPath, nameof(processDirectoryPath));
-        
+        var processDirectoryPath = GetProcessDirectoryPath();
+
         var componentType = typeof(T);
         var componentNamespace = componentType.Namespace;
         ArgumentException.ThrowIfNullOrEmpty(componentNamespace, nameof(componentNamespace));
@@ -29,5 +26,28 @@ public static class SxMarkdownContentExtensions
         var result = Path.Combine(processDirectoryPath, deltaPath, filePath);
 
         return result;
+    }
+
+    public static string GetFromRootSourceCodePath<T>(this T component, string filePath)
+        where T : ComponentBase
+    {
+        ArgumentException.ThrowIfNullOrEmpty(filePath, nameof(filePath));
+        
+        var processDirectoryPath = GetProcessDirectoryPath();
+        var result = Path.Combine(processDirectoryPath, filePath);
+        
+        return result;
+    }
+
+    private static string GetProcessDirectoryPath()
+    {
+        var processFullPath = Environment.ProcessPath;
+        ArgumentException.ThrowIfNullOrEmpty(processFullPath, nameof(processFullPath));
+        
+        var processFileInfo = new FileInfo(processFullPath);
+        var processDirectoryPath = processFileInfo.Directory?.FullName;
+        ArgumentException.ThrowIfNullOrEmpty(processDirectoryPath, nameof(processDirectoryPath));
+        
+        return processDirectoryPath;
     }
 }
