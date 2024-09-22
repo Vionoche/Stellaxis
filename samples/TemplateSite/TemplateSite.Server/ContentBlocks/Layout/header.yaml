@@ -1,0 +1,16 @@
+﻿blockId: "a42749c3-ea21-497c-bcb9-fabfb2914c1a"
+blockName: "MainHeader"
+componentType: "TemplateSite.Server.Components.Layout.Header"
+
+blockData:
+  title: "Template Site"
+
+  navLinks:
+    - title: "Home"
+      url: ""
+    - title: "Counter"
+      url: "counter"
+    - title: "Weather"
+      url: "weather"
+    - title: "About"
+      url: "about"

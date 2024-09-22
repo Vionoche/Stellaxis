@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <AssemblyName>Stellaxis.SiteBlocks.Storage</AssemblyName>
+        <RootNamespace>Stellaxis.SiteBlocks.Storage</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\SiteBlocks\SiteBlocks.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.8" />
+      <PackageReference Include="YamlDotNet" Version="16.1.2" />
+    </ItemGroup>
+
+</Project>

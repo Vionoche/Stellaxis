@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <AssemblyName>Stellaxis.SiteBlocks</AssemblyName>
+        <RootNamespace>Stellaxis.SiteBlocks</RootNamespace>
+        <OutputType>Library</OutputType>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="FluentValidation" Version="11.10.0" />
+      <PackageReference Include="Markdig" Version="0.37.0" />
+    </ItemGroup>
+
+</Project>

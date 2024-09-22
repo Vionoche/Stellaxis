@@ -1,0 +1,6 @@
+blockId: "7b9e6299-d883-47cf-bc1f-86f1eafc1b24"
+blockName: "TextBlockWithSharedText"
+componentType: "TemplateSite.Server.Components.ContentBlocks.TextBlockComponent"
+shared: true
+blockData:
+  file: "shared-text-block-example.md"

@@ -1,0 +1,55 @@
+﻿pageId: "91397d1e-746d-4295-af52-fa4b3bece0f7"
+pageName: "Home"
+componentType: "TemplateSite.Server.Components.Layout.Templates.HomePage"
+
+layout:
+  componentType: "TemplateSite.Server.Components.Layout.MainLayout"
+
+title: "Welcome to home page"
+description: |
+  Home page's description. There is a very long text may be placed.
+
+seo:
+  description: "Description for SEO optimization"
+  keywords: "Stellaxis,Yaml based CMS"
+
+containers:
+  - containerName: "MainBar"
+    blocks:
+      - blockId: "182358a2-ff75-4ccd-aa73-3e396caf62f3"
+        blockName: "HeroBlockWithLocalTextValue"
+        componentType: "TemplateSite.Server.Components.ContentBlocks.HeroBlockComponent"
+
+      - blockId: "e77c37cf-b99f-41bc-b8cf-d99f093a16a3"
+        blockName: "TextBlockWithEmbeddedText"
+        componentType: "TemplateSite.Server.Components.ContentBlocks.TextBlockComponent"
+        blockData:
+          text: |
+            # Embedded Text Example
+            This is a sample of randomly generated text using Markdown formatting. Here's what we've got:
+            
+            ## Main Content
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            
+            ## Lists
+            - Item 1
+            - Item 2
+            - Item 3
+
+      - blockId: "78034d4c-6770-4320-aa71-293c1789d103"
+        blockName: "TextBlockWithMarkdownFile"
+        componentType: "TemplateSite.Server.Components.ContentBlocks.TextBlockComponent"
+        blockData:
+          file: "home-text-block-example.md"
+
+      - blockId: "7fadd788-c4d0-4432-8111-e282f8b0fe88"
+        shared: true
+
+  - containerName: "SideBar"
+    blocks:
+      - blockId: "1308b0a0-cb7e-4d6f-9bf4-0605183f7d58"
+        blockName: "LastArticlesWithLocalSettings"
+        componentType: "TemplateSite.Server.Components.ContentBlocks.LastArticlesBlockComponent"
+        blockData:
+          maxRecords: 5
+          baseUrl: "articles"
