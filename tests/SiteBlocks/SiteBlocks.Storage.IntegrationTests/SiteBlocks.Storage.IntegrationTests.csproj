@@ -3,8 +3,6 @@
     <PropertyGroup>
         <AssemblyName>SiteBlocks.Storage.IntegrationTests</AssemblyName>
         <RootNamespace>SiteBlocks.Storage.IntegrationTests</RootNamespace>
-        <TargetFramework>net8.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
         <IsPackable>false</IsPackable>
         <IsTestProject>true</IsTestProject>
     </PropertyGroup>
