@@ -6,7 +6,7 @@ using Stellaxis.SiteBlocks.Pages;
 using Stellaxis.SiteBlocks.Pages.Aggregates;
 using Xunit;
 
-namespace ChillSite.SiteBlocks.UnitTests.Pages;
+namespace Stellaxis.SiteBlocks.UnitTests.Pages;
 
 public class PageAggregateTests
 {

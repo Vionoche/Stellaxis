@@ -11,7 +11,7 @@ description: |
 
 seo:
   description: "Description for SEO optimization"
-  keywords: "ChillSite,Yaml based CMS"
+  keywords: "Stellaxis,Yaml based CMS"
 
 containers:
   - containerName: "MainBar"
