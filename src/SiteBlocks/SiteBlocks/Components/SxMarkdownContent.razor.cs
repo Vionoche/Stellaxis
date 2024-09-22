@@ -1,8 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
-using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -16,7 +14,7 @@ namespace Stellaxis.SiteBlocks.Components;
 public partial class SxMarkdownContent : ComponentBase
 {
     [Parameter]
-    public Func<SxMarkdownContentContext, string>? FilePathFunc { get; set; }
+    public Func<string>? FilePathFunc { get; set; }
     
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
@@ -29,7 +27,7 @@ public partial class SxMarkdownContent : ComponentBase
         }
         else if (FilePathFunc != null)
         {
-            _content = await GetContentFromFile(FilePathFunc(new SxMarkdownContentContext()));
+            _content = await GetContentFromFile(FilePathFunc());
         }
     }
 
@@ -76,17 +74,25 @@ public partial class SxMarkdownContent : ComponentBase
     private static partial Regex DetectIndentsRegex();
 }
 
-public class SxMarkdownContentContext
+public static class SxMarkdownContentExtensions
 {
-    public string GetSourceCodePath<T>(string filePath)
+    public static string GetFromSourceCodePath<T>(this T component, string filePath) 
+        where T : ComponentBase
     {
         var processFullPath = Environment.ProcessPath;
+        ArgumentException.ThrowIfNullOrEmpty(processFullPath, nameof(processFullPath));
+        
         var processFileInfo = new FileInfo(processFullPath);
-        var processDirectoryPath = processFileInfo.Directory.FullName;
+        var processDirectoryPath = processFileInfo.Directory?.FullName;
+        ArgumentException.ThrowIfNullOrEmpty(processDirectoryPath, nameof(processDirectoryPath));
         
         var componentType = typeof(T);
         var componentNamespace = componentType.Namespace;
+        ArgumentException.ThrowIfNullOrEmpty(componentNamespace, nameof(componentNamespace));
+        
         var assemblyNamespace = componentType.Assembly.GetName().Name;
+        ArgumentException.ThrowIfNullOrEmpty(assemblyNamespace, nameof(assemblyNamespace));
+        
         var deltaNamespace = componentNamespace.Substring(assemblyNamespace.Length, componentNamespace.Length - assemblyNamespace.Length);
         var deltaPath = deltaNamespace.Replace('.', Path.DirectorySeparatorChar).TrimStart(Path.DirectorySeparatorChar);
         
